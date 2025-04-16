@@ -19,7 +19,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-$(function () {
-    alert('work');
-})
