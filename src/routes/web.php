@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 
@@ -16,7 +17,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [UserController::class, 'authenticate'])->name('login.authenticate');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [MainController::class,  'index'])->name('admin.main.index')->middleware('admin');
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/', [MainController::class,  'index'])->name('admin.main.index');
+
+    Route::resource('/categories', CategoryController::class);
 });
 
