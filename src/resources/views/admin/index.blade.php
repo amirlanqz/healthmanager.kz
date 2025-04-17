@@ -4,7 +4,6 @@
 
 
 @section('content')
-    <main class="app-main"> <!--begin::App Content Header-->
         <div class="app-content-header"> <!--begin::Container-->
             <div class="container-fluid"> <!--begin::Row-->
                 <div class="row">
@@ -22,6 +21,7 @@
                 </div> <!--end::Row-->
             </div> <!--end::Container-->
         </div> <!--end::App Content Header--> <!--begin::App Content-->
+
         <div class="app-content"> <!--begin::Container-->
             <div class="container-fluid"> <!--begin::Row-->
                 <div class="row"> <!--begin::Col-->
@@ -73,5 +73,4 @@
                 </div> <!--end::Row--> <!--begin::Row-->
             </div> <!--end::Container-->
         </div> <!--end::App Content-->
-    </main>
 @endsection
