@@ -12,11 +12,11 @@ class UserController extends Controller
 
     public function login()
     {
-////        User::query()->create([
-////            'name' => 'Assem',
-////            'email' => 'assemimandossova@gmail.com',
-////            'password' => bcrypt('sweetDream123$'),
-////        ]);
+//        User::query()->create([
+//            'name' => 'Assem',
+//            'email' => 'assemimandossova@gmail.com',
+//            'password' => bcrypt('sweetDream123$'),
+//        ]);
         return view('user.login');
     }
 

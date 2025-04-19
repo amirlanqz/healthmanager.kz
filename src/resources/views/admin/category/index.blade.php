@@ -43,9 +43,13 @@
 
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->title }}</td>
-                                        <td>
+                                        <td class="d-flex gap-2">
                                             <a href="{{ route('categories.edit', ['category' => $category->id]) }}" class="btn btn-info"><i class="bi bi-pencil"></i></a>
-                                            <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                            <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button href="#" class="btn btn-danger" onclick="return confirm('Confirm action')"><i class="bi bi-trash"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
