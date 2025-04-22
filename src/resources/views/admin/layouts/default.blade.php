@@ -13,6 +13,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.css') }}">
+
+    <style>
+        .cke_notifications_area {
+            display: none;
+        }
+
+        label.required::before {
+            content: "* ";
+            color: #ff0000;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary"> <!--begin::App Wrapper-->
@@ -118,8 +130,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('categories.index') }}" class="nav-link"> <i class="nav-icon bi bi-speedometer"></i>
+                        <a href="{{ route('categories.index') }}" class="nav-link"> <i class="nav-icon bi bi-card-list"></i>
                             <p>Categories</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('posts.index') }}" class="nav-link"> <i class="nav-icon bi bi-pencil-square"></i>
+                            <p>Posts</p>
                         </a>
                     </li>
                 </ul>
@@ -171,7 +189,10 @@
 <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/admin/js/adminlte.js') }}"></script>
 <script src="{{ asset('assets/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('assets/admin/ckeditor_4.22.1_full/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('assets/admin/js/main.js') }}"></script>
+
+
 
 </body>
 
