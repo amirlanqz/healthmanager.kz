@@ -27,13 +27,15 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <a href="{{ route('posts.create') }}" class="btn btn-primary">Add post</a>
+                                <a href="{{ route('admin.posts.basket') }}" class="btn btn-danger">Basket <span class="badge text-bg-light rounded-pill">{{ $basket_cnt }}</span></a>
                             </div> <!-- /.card-header -->
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th style="width: 10px">ID</th>
-                                        <th>Title</th>
+                                        <th style="width: 10px">ID</th>
+                                        <th>Thumb</th>
                                         <th>Category</th>
                                         <th style="width: 150px">Action</th>
                                     </tr>
@@ -43,6 +45,7 @@
                                     <tr class="align-middle">
 
                                         <td>{{ $post->id }}</td>
+                                        <td><img src="/{{ $post->thumb ?: 'no-image.png' }}" alt=""></td>
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->category->title }}</td>
                                         <td class="d-flex gap-2">

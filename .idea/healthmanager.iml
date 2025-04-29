@@ -119,6 +119,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/cocur/slugify" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/cviebrock/eloquent-sluggable" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/barryvdh/elfinder-flysystem-driver" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/barryvdh/laravel-elfinder" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/intervention/gif" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/intervention/image" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/studio-42/elfinder" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -10,7 +10,7 @@ return array(
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => ['storage'],
+    'dir' => ['uploads'],
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ return array(
 
     'route' => [
         'prefix' => 'elfinder',
-        'middleware' => array('web', 'auth'), //Set to null to disable middleware filter
+        'middleware' => array('web', 'admin'), //Set to null to disable middleware filter
     ],
 
     /*
@@ -77,7 +77,7 @@ return array(
     */
 
     'options' => array(),
-    
+
     /*
     |--------------------------------------------------------------------------
     | Root Options
@@ -88,7 +88,8 @@ return array(
     |
     */
     'root_options' => array(
-
+        'tmbPath' => __DIR__ . '/../public/tmb',
+        'tmbUrl' => '/tmb',
     ),
 
 );

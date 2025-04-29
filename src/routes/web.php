@@ -21,7 +21,13 @@ Route::middleware('guest')->group(function () {
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [MainController::class,  'index'])->name('admin.main.index');
 
+
     Route::resource('/categories', CategoryController::class);
+    Route::get('/posts/basket', [PostController::class, 'basket'])->name('admin.posts.basket');
+    Route::get('/posts/basket/{post}/restore', [PostController::class, 'basketRestore'])->name('admin.posts.basket.restore');
+    Route::delete('/posts/basket/{post}/destroy', [PostController::class, 'basketRemove'])->name('admin.posts.basket.destroy');
     Route::resource('/posts', PostController::class);
+
+
 });
 

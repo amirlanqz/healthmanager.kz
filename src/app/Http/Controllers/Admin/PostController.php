@@ -15,7 +15,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::query()->with('category')->paginate(4);
-        return view('admin.post.index', compact('posts'));
+        $basket_cnt = Post::onlyTrashed()->count();
+        return view('admin.post.index', compact('posts', 'basket_cnt'));
     }
 
     /**
@@ -58,7 +59,9 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::query()->findOrFail($id);
+        $categories = Category::query()->pluck('title', 'id')->all();
+        return view('admin.post.edit', compact('post', 'categories'));
     }
 
     /**
@@ -66,7 +69,20 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::query()->findOrFail($id);
+
+        $validated = $request->validate([
+            'title' => ['required', 'max:255'],
+            'meta_desc' => ['max:255'],
+            'content' => ['required'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'thumb' => ['max:255'],
+        ]);
+
+        $post->update($validated);
+
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
+
     }
 
     /**
@@ -74,6 +90,28 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::query()->findOrFail($id);
+        $post->delete();
+        return redirect()->route('posts.index')->with('success', 'Posts deleted successfully.');
+    }
+
+    public function basket()
+    {
+        $posts = Post::onlyTrashed()->with('category')->paginate(4);
+        return view('admin.post.basket', compact('posts'));
+    }
+
+    public function basketRestore(string $id)
+    {
+        $post = Post::withTrashed()->findOrFail($id);
+        $post->restore();
+        return redirect()->route('admin.posts.basket')->with('success', 'Posts restore successfully.');
+    }
+
+    public function basketRemove(string $id)
+    {
+        $post = Post::withTrashed()->findOrFail($id);
+        $post->forceDelete();
+        return redirect()->route('admin.posts.basket')->with('success', 'Posts deleted successfully.');
     }
 }

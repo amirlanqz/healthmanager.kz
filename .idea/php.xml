@@ -135,6 +135,11 @@
       <path value="$PROJECT_DIR$/src/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/src/vendor/cocur/slugify" />
       <path value="$PROJECT_DIR$/src/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/src/vendor/studio-42/elfinder" />
+      <path value="$PROJECT_DIR$/src/vendor/barryvdh/elfinder-flysystem-driver" />
+      <path value="$PROJECT_DIR$/src/vendor/barryvdh/laravel-elfinder" />
+      <path value="$PROJECT_DIR$/src/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/src/vendor/intervention/gif" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
