@@ -19,3 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+$(function () {
+    $('.select2').select2();
+})

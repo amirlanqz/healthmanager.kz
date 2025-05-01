@@ -80,6 +80,18 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="tags"
+                                           class="form-label">Tag</label>
+                                    <select name="tags[]" id="tags" class="form-select select2" multiple>
+                                        @php $tag_ids = $post->tags->pluck('id')->all() @endphp
+
+                                        @foreach($tags as $tag_id => $tag_title)
+                                            <option value="{{ $tag_id }}" {{ in_array($tag_id,$tag_ids) ? 'selected' : '' }}>{{ $tag_title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
                                     <input type="hidden" id="thumb" name="thumb" value="">
                                     <button type="button" class="btn btn-outline-primary popup_selector" data-inputid="thumb">Post Image</button>
                                     <div class="post-thumb mt-3">

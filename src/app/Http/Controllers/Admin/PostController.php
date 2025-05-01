@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::query()->with('category')->paginate(4);
+        $posts = Post::query()->with('category', 'tags')->paginate();
         $basket_cnt = Post::onlyTrashed()->count();
         return view('admin.post.index', compact('posts', 'basket_cnt'));
     }
@@ -25,7 +26,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::query()->pluck('title', 'id')->all();
-        return view('admin.post.create', compact('categories'));
+        $tags = Tag::query()->pluck('title', 'id')->all();
+        return view('admin.post.create', compact('categories', 'tags'));
     }
 
     /**
@@ -38,11 +40,12 @@ class PostController extends Controller
             'meta_desc' => ['max:255'],
             'content' => ['required'],
             'category_id' => ['required', 'exists:categories,id'],
+            'tags' => ['exists:tags,id'],
             'thumb' => ['max:255']
         ]);
 
-        Post::query()->create($validated);
-
+        $post = Post::query()->create($validated);
+        $post->tags()->sync($request->tags);
         return redirect()->route('posts.index')->with('success', 'Post added successfully.');
     }
 
@@ -60,8 +63,9 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::query()->findOrFail($id);
+        $tags = Tag::query()->pluck('title', 'id')->all();
         $categories = Category::query()->pluck('title', 'id')->all();
-        return view('admin.post.edit', compact('post', 'categories'));
+        return view('admin.post.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -76,11 +80,12 @@ class PostController extends Controller
             'meta_desc' => ['max:255'],
             'content' => ['required'],
             'category_id' => ['required', 'exists:categories,id'],
+            'tags' => ['exists:tags,id'],
             'thumb' => ['max:255'],
         ]);
 
         $post->update($validated);
-
+        $post->tags()->sync($request->tags);
         return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
 
     }
@@ -111,6 +116,9 @@ class PostController extends Controller
     public function basketRemove(string $id)
     {
         $post = Post::withTrashed()->findOrFail($id);
+        if ($post->tags()->count()) {
+            return redirect()->route('admin.posts.basket')->with('error', 'There are tags for this post.');
+        }
         $post->forceDelete();
         return redirect()->route('admin.posts.basket')->with('success', 'Posts deleted successfully.');
     }

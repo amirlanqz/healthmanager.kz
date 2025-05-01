@@ -6,6 +6,7 @@ use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
 
 
 
@@ -27,6 +28,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/posts/basket/{post}/restore', [PostController::class, 'basketRestore'])->name('admin.posts.basket.restore');
     Route::delete('/posts/basket/{post}/destroy', [PostController::class, 'basketRemove'])->name('admin.posts.basket.destroy');
     Route::resource('/posts', PostController::class);
+    Route::resource('/tags', TagController::class);
 
 
 });
