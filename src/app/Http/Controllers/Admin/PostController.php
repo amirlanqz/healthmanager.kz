@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::query()->with('category', 'tags')->paginate();
+        $posts = Post::query()->with('category', 'tags')->orderBy('id', 'desc')->paginate();
         $basket_cnt = Post::onlyTrashed()->count();
         return view('admin.post.index', compact('posts', 'basket_cnt'));
     }
@@ -39,6 +39,7 @@ class PostController extends Controller
             'title' => ['required', 'max:255'],
             'meta_desc' => ['max:255'],
             'content' => ['required'],
+            'excerpt' => ['required', 'max:255'],
             'category_id' => ['required', 'exists:categories,id'],
             'tags' => ['exists:tags,id'],
             'thumb' => ['max:255']
@@ -79,6 +80,7 @@ class PostController extends Controller
             'title' => ['required', 'max:255'],
             'meta_desc' => ['max:255'],
             'content' => ['required'],
+            'excerpt' => ['required', 'max:255'],
             'category_id' => ['required', 'exists:categories,id'],
             'tags' => ['exists:tags,id'],
             'thumb' => ['max:255'],
@@ -116,6 +118,7 @@ class PostController extends Controller
     public function basketRemove(string $id)
     {
         $post = Post::withTrashed()->findOrFail($id);
+        $post->tags()->detach();
         if ($post->tags()->count()) {
             return redirect()->route('admin.posts.basket')->with('error', 'There are tags for this post.');
         }

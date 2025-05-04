@@ -43,11 +43,19 @@
                                            value="{{ $post->title }}">
                                 </div>
 
+
+
                                 <div class="mb-3">
                                     <label for="meta_desc" class="form-label">Meta
                                         description</label>
                                     <input type="text" name="meta_desc" class="form-control" id="meta_desc"
                                            value="{{ $post->meta_desc }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="excerpt" class="form-label required">Excerpt</label>
+                                    <input type="text" name="excerpt" class="form-control" id="excerpt"
+                                           value="{{ $post->excerpt }}">
                                 </div>
 
                                 <div class="mb-3">

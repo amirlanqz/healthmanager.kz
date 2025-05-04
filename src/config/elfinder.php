@@ -76,7 +76,7 @@ return array(
     |
     */
 
-    'options' => array(),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -90,6 +90,14 @@ return array(
     'root_options' => array(
         'tmbPath' => __DIR__ . '/../public/tmb',
         'tmbUrl' => '/tmb',
+        'plugin' => array(
+            'AutoResize' => array(
+                'enable'     => true,
+                'maxWidth'   => 255,
+                'maxHeight'  => 255,
+                'quality'    => 95
+            )
+        ),
     ),
 
 );
