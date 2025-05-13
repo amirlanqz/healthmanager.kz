@@ -8,7 +8,7 @@
     <meta content="" name="description" />
 
     <!-- Favicon -->
-{{--    <link href="img/favicon.ico" rel="icon" />--}}
+    {{--    <link href="img/favicon.ico" rel="icon" />--}}
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,18 +45,18 @@
 
 <body>
 <!-- Spinner Start -->
-<div
-    id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
->
-    <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-    >
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
+{{--<div--}}
+{{--    id="spinner"--}}
+{{--    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"--}}
+{{-->--}}
+{{--    <div--}}
+{{--        class="spinner-grow text-primary"--}}
+{{--        style="width: 3rem; height: 3rem"--}}
+{{--        role="status"--}}
+{{--    >--}}
+{{--        <span class="sr-only">Loading...</span>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 <nav
     class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn"
@@ -307,7 +307,7 @@
             <a href="contact.html" class="nav-item nav-link">Менеджеры</a>
         </div>
         <a
-            href=""
+            href="{{ route('membership.store') }}"
             class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
         >Вступить в сообщество<i class="fa fa-arrow-right ms-3"></i
             ></a>
@@ -316,43 +316,43 @@
 
 @if(request()->routeIs('home'))
 
-<div class="container-fluid header bg-primary p-0 mb-5">
-    <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
-        <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
-            <h1 class="display-4 text-white mb-5">
-                Республиканское общественное объединение «Казахстанская ассоциация менеджеров здравоохранения»
-            </h1>
-            <div class="row g-4">
-                <div class="col-sm-4">
-                    <div class="border-start border-light ps-4">
-                        <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
-                        <p class="text-light mb-0">Expert Doctors</p>
+    <div class="container-fluid header bg-primary p-0 mb-5">
+        <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
+            <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="display-4 text-white mb-5">
+                    Республиканское общественное объединение «Казахстанская ассоциация менеджеров здравоохранения»
+                </h1>
+                <div class="row g-4">
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
+                            <p class="text-light mb-0">Expert Doctors</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="border-start border-light ps-4">
-                        <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
-                        <p class="text-light mb-0">Medical Stuff</p>
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
+                            <p class="text-light mb-0">Medical Stuff</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="border-start border-light ps-4">
-                        <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
-                        <p class="text-light mb-0">Total Patients</p>
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
+                            <p class="text-light mb-0">Total Patients</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-            <div class="owl-carousel header-carousel">
-                <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="{{ asset('assets/front/img/carousel-3.jpg')}}" alt="" />
-                    <div class="owl-carousel-text"></div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="owl-carousel header-carousel">
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{{ asset('assets/front/img/carousel-3.jpg')}}" alt="" />
+                        <div class="owl-carousel-text"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 @endif
 

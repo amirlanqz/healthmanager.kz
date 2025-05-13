@@ -36,12 +36,13 @@
                                 <div class="row mb-3">
                                     <label for="thumb" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        @if ($manager->thumb)
-                                            <div class="mb-2">
-                                                <img src="{{ Storage::url($manager->thumb) }}" alt="Current Image" style="max-width: 150px; max-height: 150px;">
-                                                <p>Current image: {{ basename($manager->thumb) }}</p>
-                                            </div>
-                                        @endif
+                                        <td>
+                                            @if ($manager->thumb)
+                                                <img src="{{ asset($manager->thumb) }}" alt="{{ $manager->full_name }}" style="max-width: 100px;">
+                                            @else
+                                                <img src="{{ asset('no-image.png') }}" alt="No image" style="max-width: 100px;">
+                                            @endif
+                                        </td>
                                         <input type="file" name="thumb" class="form-control" id="thumb" accept="thumb/*">
                                         <small class="form-text text-muted">Upload a new image to replace the current one (optional).</small>
                                         @error('thumb')
@@ -71,6 +72,16 @@
                                             <option value="seo" {{ old('membership_status') == 'seo' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения, учредитель</option>
                                         </select>
                                         @error('membership_status')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="position" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" name="email" class="form-control" id="email" value="{{ old('email', $manager->email) }}">
+                                        @error('email')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

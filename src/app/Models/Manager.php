@@ -11,6 +11,7 @@ class Manager extends Model
         'thumb',
         'full_name',
         'membership_status',
+        'email',
         'position',
         'workplace',
         'education',

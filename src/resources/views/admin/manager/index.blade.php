@@ -36,6 +36,7 @@
                                         <th style="width: 150px">Image</th>
                                         <th style="width: 150px">Full name</th>
                                         <th style="width: 150px">membership_status</th>
+                                        <th style="width: 150px">email</th>
                                         <th style="width: 150px">position</th>
                                         <th style="width: 150px">workplace</th>
                                         <th style="width: 150px">education</th>
@@ -56,6 +57,7 @@
                                             </td>
                                             <td>{{ $manager->full_name }}</td>
                                             <td>{{ $manager->membership_status }}</td>
+                                            <td>{{ $manager->email }}</td>
                                             <td>{{ $manager->position }}</td>
                                             <td>{{ $manager->workplace }}</td>
                                             <td>{{ $manager->education }}</td>

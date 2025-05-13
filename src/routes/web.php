@@ -12,6 +12,10 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.single');
 Route::get('/posts/all', [\App\Http\Controllers\PostController::class, 'allPosts'])->name('posts.all');
+Route::get('/membership', [\App\Http\Controllers\MembershipController::class, 'choose'])->name('membership.store');
+Route::get('/membership/form', [\App\Http\Controllers\MembershipController::class, 'showForm'])->name('membership.form');
+Route::post('/membership/submit', [\App\Http\Controllers\MembershipController::class, 'submit'])->name('membership.submit');
+
 
 
 Route::get('/managers', [\App\Http\Controllers\PostController::class, 'show'])->name('managers');

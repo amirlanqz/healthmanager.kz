@@ -62,6 +62,13 @@
                                     </div>
                                 </div>
 
+                                <div class="row mb-3">
+                                    <label for="email" class="col-sm-2 col-form-label">email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
+                                    </div>
+                                </div>
+
                                 <!-- Position -->
                                 <div class="row mb-3">
                                     <label for="position" class="col-sm-2 col-form-label">Position</label>

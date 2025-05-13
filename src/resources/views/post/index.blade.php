@@ -75,11 +75,6 @@
                         data-wow-delay="0.1s"
                 >
                     <div class="p-lg-5 ps-lg-0">
-                        <p
-                                class="d-inline-block border rounded-pill text-light py-1 px-4"
-                        >
-                            Features
-                        </p>
                         <h1 class="text-white mb-4">Наша деятельность</h1>
                         <p class="text-white mb-4 pb-2">
                             Резолюция круглого стола по обсуждению вопросов сертификации менеджеров здравоохранения
@@ -94,8 +89,8 @@
                                         <i class="fa fa-user-md text-primary"></i>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Experience</p>
-                                        <h5 class="text-white mb-0">Doctors</h5>
+                                        <p class="text-white mb-2">Опыт</p>
+                                        <h5 class="text-white mb-0">Докторы</h5>
                                     </div>
                                 </div>
                             </div>
@@ -108,8 +103,8 @@
                                         <i class="fa fa-check text-primary"></i>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Quality</p>
-                                        <h5 class="text-white mb-0">Services</h5>
+                                        <p class="text-white mb-2">Качество</p>
+                                        <h5 class="text-white mb-0">Сервисы</h5>
                                     </div>
                                 </div>
                             </div>
@@ -122,8 +117,8 @@
                                         <i class="fa fa-comment-medical text-primary"></i>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Positive</p>
-                                        <h5 class="text-white mb-0">Consultation</h5>
+                                        <p class="text-white mb-2">Положительный</p>
+                                        <h5 class="text-white mb-0">Консультация</h5>
                                     </div>
                                 </div>
                             </div>
@@ -136,8 +131,8 @@
                                         <i class="fa fa-headphones text-primary"></i>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">24 Hours</p>
-                                        <h5 class="text-white mb-0">Support</h5>
+                                        <p class="text-white mb-2">24 часа</p>
+                                        <h5 class="text-white mb-0">Поддержка</h5>
                                     </div>
                                 </div>
                             </div>
