@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Manager extends Model
 {
     //
-    protected $fillable = ['full_name', 'membership_status', 'position', 'workplace'];
+    protected $fillable = [
+        'thumb',
+        'full_name',
+        'membership_status',
+        'position',
+        'workplace',
+        'education',
+        'education_file',
+    ];
 }

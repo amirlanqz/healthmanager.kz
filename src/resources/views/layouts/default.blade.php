@@ -303,7 +303,7 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="index.html" class="nav-item nav-link active">Home</a>
             <a href="about.html" class="nav-item nav-link">Контакты</a>
-            <a href="service.html" class="nav-item nav-link">Блог</a>
+            <a href="{{ route('posts.all') }}" class="nav-item nav-link">Блог</a>
             <a href="contact.html" class="nav-item nav-link">Менеджеры</a>
         </div>
         <a

@@ -38,28 +38,52 @@
                                         <th style="width: 150px">membership_status</th>
                                         <th style="width: 150px">position</th>
                                         <th style="width: 150px">workplace</th>
+                                        <th style="width: 150px">education</th>
+                                        <th style="width: 150px">education_file</th>
                                         <th style="width: 150px">action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($managers as $manager)
-                                    <tr class="align-middle">
-
-                                        <td>{{ $manager->id }}</td>
-                                        <td><img src="/{{ $manager->thumb ?: 'no-image.png' }}" alt=""></td>
-                                        <td>{{ $manager->full_name }}</td>
-                                        <td>{{ $manager->membership_status }}</td>
-                                        <td>{{ $manager->position }}</td>
-                                        <td>{{ $manager->workplace }}</td>
-                                        <td class="d-flex gap-2">
-                                            <a href="{{ route('manager.edit', ['manager' => $manager->id]) }}" class="btn btn-info"><i class="bi bi-pencil"></i></a>
-                                            <form action="{{ route('manager.destroy', ['manager' => $manager->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button href="#" class="btn btn-danger" onclick="return confirm('Confirm action')"><i class="bi bi-trash"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        <tr class="align-middle">
+                                            <td>{{ $manager->id }}</td>
+                                            <td>
+                                                @if ($manager->thumb)
+                                                    <img src="{{ asset($manager->thumb) }}" alt="{{ $manager->full_name }}" style="max-width: 100px;">
+                                                @else
+                                                    <img src="{{ asset('no-image.png') }}" alt="No image" style="max-width: 100px;">
+                                                @endif
+                                            </td>
+                                            <td>{{ $manager->full_name }}</td>
+                                            <td>{{ $manager->membership_status }}</td>
+                                            <td>{{ $manager->position }}</td>
+                                            <td>{{ $manager->workplace }}</td>
+                                            <td>{{ $manager->education }}</td>
+                                            <td>
+                                                @if ($manager->education_file)
+                                                    @php
+                                                        $files = json_decode($manager->education_file, true);
+                                                    @endphp
+                                                    @foreach ($files as $file)
+                                                        @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png']))
+                                                            <img src="{{ asset($file) }}" alt="Diploma" style="max-width: 100px; margin-bottom: 10px;">
+                                                        @else
+                                                            <a href="{{ asset($file) }}" target="_blank">View {{ pathinfo($file, PATHINFO_BASENAME) }}</a>
+                                                        @endif
+                                                    @endforeach
+                                                @else
+                                                    <img src="{{ asset('no-image.png') }}" alt="No file" style="max-width: 100px;">
+                                                @endif
+                                            </td>
+                                            <td class="d-flex gap-2">
+                                                <a href="{{ route('manager.edit', ['manager' => $manager->id]) }}" class="btn btn-info"><i class="bi bi-pencil"></i></a>
+                                                <form action="{{ route('manager.destroy', ['manager' => $manager->id]) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" onclick="return confirm('Confirm action')"><i class="bi bi-trash"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>

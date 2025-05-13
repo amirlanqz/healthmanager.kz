@@ -34,7 +34,6 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 10px">ID</th>
-                                        <th style="width: 10px">ID</th>
                                         <th>Thumb</th>
                                         <th>Category</th>
                                         <th>Tags</th>

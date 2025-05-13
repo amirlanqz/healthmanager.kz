@@ -8,60 +8,104 @@ use Illuminate\Http\Request;
 
 class ManagerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $managers = Manager::query()->paginate(4);
         return view('admin.manager.index', compact('managers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.manager.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'thumb' => 'nullable|image|max:2048',
+            'full_name' => 'required|string|max:255',
+            'membership_status' => 'required|in:top_manager,health_manager,seo',
+            'position' => 'nullable|string|max:255',
+            'workplace' => 'nullable|string|max:255',
+            'education' => 'nullable|string',
+            'education_file.*' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+        ]);
+
+        // Обработка изображения
+        if ($request->hasFile('thumb')) {
+            $file = $request->file('thumb');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('assets/admin/assets/managers/thumbs'), $filename);
+            $validated['thumb'] = 'assets/admin/assets/managers/thumbs/' . $filename;
+        }
+
+        // Обработка файлов дипломов
+        if ($request->hasFile('education_file')) {
+            $files = [];
+            foreach ($request->file('education_file') as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/admin/assets/managers/diplomas'), $filename);
+                $files[] = 'assets/admin/assets/managers/diplomas/' . $filename;
+            }
+            $validated['education_file'] = json_encode($files);
+        }
+
+        Manager::query()->create($validated);
+        return redirect()->route('manager.index')->with('success', 'Менеджер успешно создан.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $manager = Manager::query()->findOrFail($id);
+        return view('admin.manager.edit', compact('manager'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $manager = Manager::query()->findOrFail($id);
+
+        $validated = $request->validate([
+            'thumb' => 'nullable|image|max:2048',
+            'full_name' => 'required|string|max:255',
+            'membership_status' => 'required|in:top_manager,health_manager,seo',
+            'position' => 'nullable|string|max:255',
+            'workplace' => 'nullable|string|max:255',
+            'education' => 'nullable|string',
+            'education_file.*' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+        ]);
+
+        // Обработка изображения
+        if ($request->hasFile('thumb')) {
+            $file = $request->file('thumb');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('managers/thumbs'), $filename);
+            $validated['thumb'] = 'managers/thumbs/' . $filename;
+        }
+
+        // Обработка файлов дипломов
+        $currentFiles = $manager->education_file ? json_decode($manager->education_file, true) : [];
+        if ($request->hasFile('education_file')) {
+            foreach ($request->file('education_file') as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('managers/diplomas'), $filename);
+                $currentFiles[] = 'managers/diplomas/' . $filename;
+            }
+            $validated['education_file'] = json_encode($currentFiles);
+        }
+
+        $manager->update($validated);
+        return redirect()->route('manager.index')->with('success', 'Менеджер успешно обновлён.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $manager = Manager::query()->findOrFail($id);
+        $manager->delete();
+        return redirect()->route('manager.index')->with('success', 'Менеджер успешно удалён.');
     }
 }
