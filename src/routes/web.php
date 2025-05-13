@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.single');
+Route::get('/posts/all', [\App\Http\Controllers\PostController::class, 'allPosts'])->name('posts.all');
+
+
 Route::get('/managers', [\App\Http\Controllers\PostController::class, 'show'])->name('managers');
 
 Route::middleware('guest')->group(function () {
@@ -32,4 +35,5 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('posts', PostController::class);
     Route::resource('tags', TagController::class);
     Route::resource('users', AdminUserController::class);
+    Route::resource('manager', \App\Http\Controllers\Admin\ManagerController::class);
 });

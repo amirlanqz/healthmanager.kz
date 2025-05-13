@@ -54,7 +54,7 @@
             </div>
 
             <div class="text-center mt-4 wow fadeInUp" data-wow-delay="0.5s">
-                <a href="{{ route('posts.index') }}" class="btn btn-outline-primary rounded-pill py-3 px-5">
+                <a href="{{ route('posts.all') }}" class="btn btn-outline-primary rounded-pill py-3 px-5">
                     Все статьи <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>

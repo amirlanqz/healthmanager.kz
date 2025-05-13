@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Manager;
 use Illuminate\Http\Request;
 
 class ManagerController extends Controller
@@ -12,7 +13,8 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        //
+        $managers = Manager::query()->paginate(4);
+        return view('admin.manager.index', compact('managers'));
     }
 
     /**

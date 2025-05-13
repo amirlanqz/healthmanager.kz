@@ -313,9 +313,9 @@
             ></a>
     </div>
 </nav>
-<!-- Navbar End -->
 
-<!-- Header Start -->
+@if(request()->routeIs('home'))
+
 <div class="container-fluid header bg-primary p-0 mb-5">
     <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
         <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
@@ -354,12 +354,12 @@
     </div>
 </div>
 
+@endif
+
 @yield('content')
 
-<div
-    class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
-    data-wow-delay="0.1s"
->
+<div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
+     data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -438,13 +438,11 @@
         </div>
     </div>
 </div>
-<!-- Footer End -->
 
 <!-- Back to Top -->
 <a
     href="#"
-    class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
-><i class="bi bi-arrow-up"></i
+    class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i
     ></a>
 
 <!-- JavaScript Libraries -->

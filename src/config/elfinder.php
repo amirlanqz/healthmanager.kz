@@ -88,14 +88,19 @@ return array(
     |
     */
     'root_options' => array(
-        'tmbPath' => __DIR__ . '/../public/tmb',
+        'tmbPath' => __DIR__ . '/../public/uploads',
         'tmbUrl' => '/tmb',
+        'bind' => array(
+            'upload.presave' => array(
+                'Plugin.AutoResize.onUpLoadPreSave'
+            )
+        ),
         'plugin' => array(
             'AutoResize' => array(
-                'enable'     => true,
-                'maxWidth'   => 255,
-                'maxHeight'  => 255,
-                'quality'    => 95
+                'enable' => true,
+                'maxWidth'  => 400,
+                'maxHeight'  => 400,
+                'quality' => 95
             )
         ),
     ),

@@ -151,6 +151,12 @@
                             <p>Users</p>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('manager.index') }}" class="nav-link"> <i class="nav-icon bi bi-people"></i>
+                            <p>Managers</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
