@@ -301,10 +301,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">Контакты</a>
+            <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+            <a href="{{ route('contact') }}" class="nav-item nav-link">Контакты</a>
             <a href="{{ route('posts.all') }}" class="nav-item nav-link">Блог</a>
-            <a href="contact.html" class="nav-item nav-link">Менеджеры</a>
+            <a href="{{ route('all.managers') }}" class="nav-item nav-link">Менеджеры</a>
         </div>
         <a
             href="{{ route('membership.store') }}"
@@ -325,20 +325,20 @@
                 <div class="row g-4">
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
-                            <p class="text-light mb-0">Expert Doctors</p>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">30</h2>
+                            <p class="text-light mb-0">Докторов</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
-                            <p class="text-light mb-0">Medical Stuff</p>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">45</h2>
+                            <p class="text-light mb-0">Менеджеров</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
-                            <p class="text-light mb-0">Total Patients</p>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">15</h2>
+                            <p class="text-light mb-0">Учредителей</p>
                         </div>
                     </div>
                 </div>
@@ -365,48 +365,33 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Адрес</h5>
                 <p class="mb-2">
-                    <i class="fa fa-map-marker-alt me-3"></i>Астана
+                    <i class="fa fa-map-marker-alt me-3"></i>г. Астана, проспект Республики, 71/1, п.26
                 </p>
                 <p class="mb-2">
                     <i class="fa fa-phone-alt me-3"></i>+7 701 345 49 39
                 </p>
                 <p class="mb-2">
-                    <i class="fa fa-envelope me-3"></i>healthmanager@example.com
+                    <i class="fa fa-envelope me-3"></i>info@healthmanager.kz
                 </p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social rounded-circle" href=""
-                    ><i class="fab fa-twitter"></i
-                        ></a>
-                    <a class="btn btn-outline-light btn-social rounded-circle" href=""
-                    ><i class="fab fa-facebook-f"></i
+                    ><i class="fab fa-instagram"></i
                         ></a>
                     <a class="btn btn-outline-light btn-social rounded-circle" href=""
                     ><i class="fab fa-youtube"></i
                         ></a>
-                    <a class="btn btn-outline-light btn-social rounded-circle" href=""
-                    ><i class="fab fa-linkedin-in"></i
-                        ></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Services</h5>
-                <a class="btn btn-link" href="">Cardiology</a>
-                <a class="btn btn-link" href="">Pulmonary</a>
-                <a class="btn btn-link" href="">Neurology</a>
-                <a class="btn btn-link" href="">Orthopedics</a>
-                <a class="btn btn-link" href="">Laboratory</a>
+                <h5 class="text-light mb-4">Быстрые ссылки</h5>
+                <a class="btn btn-link" href="{{ route('home') }}">Home</a>
+                <a class="btn btn-link" href="">Контакты</a>
+                <a class="btn btn-link" href="{{ route('posts.all') }}">Блог</a>
+                <a class="btn btn-link" href="">Менеджеры</a>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Our Services</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">Support</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Newsletter</h5>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <h5 class="text-light mb-4">Напишите нам</h5>
+                <p>Для консультации отправьте свой email</p>
                 <div class="position-relative mx-auto" style="max-width: 400px">
                     <input
                         class="form-control border-0 w-100 py-3 ps-4 pe-5"
@@ -417,7 +402,7 @@
                         type="button"
                         class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
                     >
-                        SignUp
+                        Отправить
                     </button>
                 </div>
             </div>
@@ -429,10 +414,6 @@
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="index.html">healthmanager.kz</a>, All
                     Right Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By amirlanqz@github.com
                 </div>
             </div>
         </div>

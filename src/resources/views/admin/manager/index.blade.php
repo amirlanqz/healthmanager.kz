@@ -7,7 +7,7 @@
             <div class="container-fluid"> <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">Categories</h3>
+                        <h3 class="mb-0">Managers</h3>
                     </div>
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-end">
@@ -32,22 +32,26 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th style="width: 10px">ID</th>
-                                        <th style="width: 150px">Image</th>
-                                        <th style="width: 150px">Full name</th>
-                                        <th style="width: 150px">membership_status</th>
+                                        <th style="width: 150px">Фото</th>
+                                        <th style="width: 150px">ФИО</th>
+                                        <th style="width: 150px">Подписка</th>
                                         <th style="width: 150px">email</th>
-                                        <th style="width: 150px">position</th>
-                                        <th style="width: 150px">workplace</th>
-                                        <th style="width: 150px">education</th>
-                                        <th style="width: 150px">education_file</th>
+                                        <th style="width: 150px">Должность</th>
+                                        <th style="width: 150px">Место работы</th>
+                                        <th style="width: 150px">Контактный номер</th>
+                                        <th style="width: 150px">Соц сети</th>
+                                        <th style="width: 150px">Дата рождения</th>
+                                        <th style="width: 150px">Стаж работы в здравоохранении</th>
+                                        <th style="width: 150px">Образование</th>
+                                        <th style="width: 150px">Документы об образовании</th>
+                                        <th style="width: 150px">Ознакомление</th>
+                                        <th style="width: 150px">Дата вступление</th>
                                         <th style="width: 150px">action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($managers as $manager)
                                         <tr class="align-middle">
-                                            <td>{{ $manager->id }}</td>
                                             <td>
                                                 @if ($manager->thumb)
                                                     <img src="{{ asset($manager->thumb) }}" alt="{{ $manager->full_name }}" style="max-width: 100px;">
@@ -60,6 +64,10 @@
                                             <td>{{ $manager->email }}</td>
                                             <td>{{ $manager->position }}</td>
                                             <td>{{ $manager->workplace }}</td>
+                                            <td>{{ $manager->phone }}</td>
+                                            <td>{{ $manager->social_links }}</td>
+                                            <td>{{ $manager->birth_date }}</td>
+                                            <td>{{ $manager->healthcare_experience }}</td>
                                             <td>{{ $manager->education }}</td>
                                             <td>
                                                 @if ($manager->education_file)
@@ -77,6 +85,8 @@
                                                     <img src="{{ asset('no-image.png') }}" alt="No file" style="max-width: 100px;">
                                                 @endif
                                             </td>
+                                            <td>{{ $manager->accepted_rules }}</td>
+                                            <td>{{ $manager->created_at }}</td>
                                             <td class="d-flex gap-2">
                                                 <a href="{{ route('manager.edit', ['manager' => $manager->id]) }}" class="btn btn-info"><i class="bi bi-pencil"></i></a>
                                                 <form action="{{ route('manager.destroy', ['manager' => $manager->id]) }}" method="post">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Manager;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -11,7 +12,8 @@ class PostController extends Controller
     public function index ()
     {
         $posts = Post::with('category')->orderBy('id', 'desc')->paginate(2);
-        return view('post.index', compact('posts'));
+        $managers = Manager::orderBy('id', 'desc')->paginate(5);
+        return view('post.index', compact('posts', 'managers'));
     }
 
     public function show($slug)
@@ -27,5 +29,11 @@ class PostController extends Controller
     {
         $posts = Post::with('category')->orderBy('id', 'desc')->get();
         return view('post.all', compact('posts'));
+    }
+
+    public function showManager()
+    {
+        $manager = Manager::all();
+
     }
 }

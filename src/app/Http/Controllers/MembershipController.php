@@ -58,12 +58,17 @@ class MembershipController extends Controller
         $validated = $request->validate([
             'thumb' => 'nullable|image|max:2048',
             'full_name' => 'required|string|max:255',
-            'membership_status' => 'required|in:top_manager,health_manager,seo',
+            'membership_status' => 'required|string|max:255',
             'email' => 'required|string|max:255',
             'position' => 'nullable|string|max:255',
             'workplace' => 'nullable|string|max:255',
             'education' => 'nullable|string',
             'education_file.*' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+            'phone' => 'nullable|string|max:20',
+            'social_links' => 'nullable|string|max:255',
+            'birth_date' => 'nullable|date',
+            'healthcare_experience' => 'nullable|string|max:255',
+            'accepted_rules' => 'required|accepted',
         ]);
 
         // Обработка изображения
@@ -88,7 +93,7 @@ class MembershipController extends Controller
         $manager = Manager::query()->create($validated);
 
         // Тут можно вызвать сервис оплаты или перенаправить на оплату
-        return redirect()->route('membership.payment', ['id' => $manager->id]);
+//        return redirect()->route('membership.payment', ['id' => $manager->id]);
     }
 
 }

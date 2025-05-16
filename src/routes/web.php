@@ -19,6 +19,11 @@ Route::post('/membership/submit', [\App\Http\Controllers\MembershipController::c
 
 
 Route::get('/managers', [\App\Http\Controllers\PostController::class, 'show'])->name('managers');
+Route::get('/manager/all', [\App\Http\Controllers\ManagerFrontController::class, 'show'])->name('all.managers');
+
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+Route::post('/contact/send', [\App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [UserController::class, 'login'])->name('login');

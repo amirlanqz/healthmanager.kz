@@ -3,69 +3,135 @@
 @section('content')
     <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <!-- Card for the form -->
-                <div class="card shadow-lg border-0 rounded-4">
-                    <div class="card-body p-5">
-                        <!-- Header -->
-                        <div class="text-center mb-5">
-                            <h2 class="display-5 fw-bold text-primary mb-3">Форма регистрации</h2>
-                            <p class="lead text-muted">Заполните данные для регистрации: <strong>{{ $label }}</strong> — {{ $amount }} тг/год</p>
+            <div class="col-lg-10 col-xl-8">
+                <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                    <!-- Card Header with Gradient Background -->
+                    <div class="card-header bg-primary bg-gradient py-4">
+                        <div class="text-center text-white">
+                            <h2 class="display-4 fw-bold mb-1 text-white">Форма регистрации</h2>
+                            <p class="fs-5 mb-0 opacity-75">{{ $label }} — {{ $amount }} тг/год</p>
                         </div>
+                    </div>
 
-                        <!-- Form -->
-                        <form action="{{ route('membership.submit') }}" method="POST" enctype="multipart/form-data" class="row g-4">
+                    <!-- Card Body -->
+                    <div class="card-body p-4 p-md-5">
+                        <form action="{{ route('membership.submit') }}" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
                             @csrf
-
                             <input type="hidden" name="membership_status" value="{{ $label }}">
 
-                            <!-- Avatar Upload -->
+                            <!-- Photo Upload with Preview -->
                             <div class="col-md-6">
-                                <label for="thumb" class="form-label fw-semibold">Фотография (аватар)</label>
-                                <input type="file" class="form-control form-control-lg rounded-3" name="thumb" id="thumb" required>
+                                <label for="thumb" class="form-label fw-semibold">Фотография <span class="text-danger">*</span></label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-circle border overflow-hidden" style="width: 60px; height: 60px; background-color: #f0f2f5;">
+                                        <img id="thumbPreview" src="#" alt="Preview" class="img-fluid d-none" style="object-fit: cover; width: 100%; height: 100%;">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input type="file" class="form-control" name="thumb" id="thumb" accept="image/*" required onchange="previewImage(this, 'thumbPreview')">
+                                        <div class="invalid-feedback">Пожалуйста, загрузите фотографию</div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Full Name -->
                             <div class="col-md-6">
-                                <label for="full_name" class="form-label fw-semibold">ФИО</label>
-                                <input type="text" class="form-control form-control-lg rounded-3" name="full_name" id="full_name" required>
+                                <label for="full_name" class="form-label fw-semibold">ФИО <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="full_name" id="full_name" required>
+                                <div class="invalid-feedback">Пожалуйста, укажите ваше полное имя</div>
                             </div>
 
                             <!-- Email -->
                             <div class="col-md-6">
-                                <label for="email" class="form-label fw-semibold">Email</label>
-                                <input type="email" class="form-control form-control-lg rounded-3" name="email" id="email" required>
+                                <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                                <div class="invalid-feedback">Пожалуйста, введите корректный email</div>
                             </div>
 
                             <!-- Position -->
                             <div class="col-md-6">
-                                <label for="position" class="form-label fw-semibold">Должность</label>
-                                <input type="text" class="form-control form-control-lg rounded-3" name="position" id="position" required>
+                                <label for="position" class="form-label fw-semibold">Должность <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="position" id="position" required>
+                                <div class="invalid-feedback">Пожалуйста, укажите вашу должность</div>
                             </div>
 
                             <!-- Workplace -->
                             <div class="col-md-6">
-                                <label for="workplace" class="form-label fw-semibold">Место работы</label>
-                                <input type="text" class="form-control form-control-lg rounded-3" name="workplace" id="workplace" required>
+                                <label for="workplace" class="form-label fw-semibold">Место работы <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="workplace" id="workplace" required>
+                                <div class="invalid-feedback">Пожалуйста, укажите место работы</div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label fw-semibold">Контактный номер <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">+7</span>
+                                    <input type="tel" class="form-control" name="phone" id="phone" required>
+                                </div>
+                                <div class="invalid-feedback">Пожалуйста, укажите контактный номер</div>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="col-md-6">
+                                <label for="social_links" class="form-label fw-semibold">Социальные сети</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-instagram"></i></span>
+                                    <input type="text" class="form-control" name="social_links" id="social_links">
+                                </div>
+                            </div>
+
+                            <!-- Birth Date -->
+                            <div class="col-md-6">
+                                <label for="birth_date" class="form-label fw-semibold">Дата рождения <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" name="birth_date" id="birth_date" required>
+                                <div class="invalid-feedback">Пожалуйста, укажите дату рождения</div>
+                            </div>
+
+                            <!-- Experience -->
+                            <div class="col-md-6">
+                                <label for="healthcare_experience" class="form-label fw-semibold">Стаж работы в здравоохранении</label>
+                                <select class="form-select" name="healthcare_experience" id="healthcare_experience">
+                                    <option value="" selected disabled>Выберите стаж</option>
+                                    <option value="Менее 1 года">Менее 1 года</option>
+                                    <option value="1-3 года">1-3 года</option>
+                                    <option value="3-5 лет">3-5 лет</option>
+                                    <option value="5-10 лет">5-10 лет</option>
+                                    <option value="Более 10 лет">Более 10 лет</option>
+                                </select>
                             </div>
 
                             <!-- Education -->
                             <div class="col-md-6">
-                                <label for="education" class="form-label fw-semibold">Образование</label>
-                                <input type="text" class="form-control form-control-lg rounded-3" name="education" id="education" required>
+                                <label for="education" class="form-label fw-semibold">Образование <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="education" id="education" required>
+                                <div class="invalid-feedback">Пожалуйста, укажите ваше образование</div>
                             </div>
 
-                            <!-- Education Document -->
+                            <!-- Education Documents -->
                             <div class="col-md-6">
-                                <label for="education_file" class="form-label fw-semibold">Документ об образовании</label>
-                                <input type="file" class="form-control form-control-lg rounded-3" name="education_file" id="education_file" required>
+                                <label for="education_file" class="form-label fw-semibold">Документ об образовании <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" name="education_file[]" id="education_file" accept=".pdf,image/*" multiple required>
+                                <small class="text-muted">Можно загрузить несколько файлов (PDF, JPG, PNG)</small>
+                                <div class="invalid-feedback">Пожалуйста, загрузите документ об образовании</div>
                             </div>
 
-                            <!-- Submission Section -->
-                            <div class="col-12 text-center mt-5">
-                                <p class="h5 mb-4">Сумма к оплате: <strong>{{ $amount }} тг</strong></p>
-                                <button type="submit" class="btn btn-lg btn-success rounded-pill px-5 py-3 fw-semibold transition-all hover-scale">
-                                    Перейти к оплате
+                            <!-- Agreement -->
+                            <div class="col-12 mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="accepted_rules" id="accepted_rules" value="1" required>
+                                    <label class="form-check-label" for="accepted_rules">
+                                        Я ознакомился с Уставом и Правилами вступления в члены Республиканского общественного объединения
+                                        «Казахстанская ассоциация менеджеров здравоохранения», понимаю их содержание и принимаю их условия.
+                                        Я обязуюсь соответствовать требованиям, предъявляемым члену Объединения и понимаю ответственность в рамках членства в Объединении.
+                                    </label>
+                                    <div class="invalid-feedback">Вы должны принять условия перед отправкой</div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 text-center mt-7">
+                                <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm">
+                                    <span class="fw-bold text-white">{{ $amount }} тг</span> <br> <i class="bi bi-credit-card me-2"></i> Перейти к оплате
                                 </button>
                             </div>
                         </form>
@@ -75,44 +141,41 @@
         </div>
     </div>
 
-    <!-- Custom CSS for enhanced styling -->
-    <style>
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    <script>
+        // Image preview function
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('d-none');
+                }
+
+                reader.readAsDataURL(file);
+            }
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
-        }
-        .form-control {
-            border: 1px solid #ced4da;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        .btn-success {
-            background-color: #28a745;
-            border-color: #28a745;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .btn-success:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
-            transform: scale(1.05);
-        }
-        .rounded-4 {
-            border-radius: 1rem !important;
-        }
-        .transition-all {
-            transition: all 0.3s ease;
-        }
-        .hover-scale {
-            transition: transform 0.2s ease;
-        }
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-    </style>
+
+        // Form validation
+        (function() {
+            'use strict';
+
+            const forms = document.querySelectorAll('.needs-validation');
+
+            Array.from(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
 @endsection
