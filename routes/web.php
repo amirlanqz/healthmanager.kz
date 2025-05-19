@@ -28,6 +28,9 @@ Route::post('/contact/send', [\App\Http\Controllers\ContactController::class, 's
 Route::middleware('guest')->group(function () {
     Route::get('/login', [UserController::class, 'login'])->name('login');
     Route::post('/login', [UserController::class, 'authenticate'])->name('login.authenticate');
+
+    Route::get('/register', [\App\Http\Controllers\Admin\RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [\App\Http\Controllers\Admin\RegisterController::class, 'register']);
 });
 
 Route::middleware('auth')->group(function () {
