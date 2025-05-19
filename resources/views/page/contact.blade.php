@@ -40,11 +40,13 @@
                                 <input type="email" name="email" class="form-control text-dark" id="email" placeholder="example@email.com">
                             </div>
 
-                            <div class="mb-3">
+                             <div class="mb-3">
                                 <label for="phone" class="form-label text-dark">Номер телефона</label>
-                                <input type="text" name="phone" class="form-control text-dark" id="phone" placeholder="+7 (___) ___-__-__">
-                            </div>
-
+                                <input type="tel" name="phone" class="form-control text-dark" id="phone"
+                                       placeholder="+7 (___) ___-__-__"
+                                       pattern="[\+0-9\s\(\)\-]+"
+                                       title="Введите только цифры и символы +, -, (, )">                            
+                                    </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label text-dark">Сообщение</label>
                                 <textarea name="message" class="form-control text-dark" id="message" rows="5" placeholder="Ваше сообщение..."></textarea>
