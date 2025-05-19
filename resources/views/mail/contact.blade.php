@@ -26,3 +26,4 @@
 <p>{{ $request->message }}</p>
 </body>
 </html>
+

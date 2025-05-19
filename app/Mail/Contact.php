@@ -29,10 +29,13 @@ class Contact extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            from: new Address($this->request->email),
+         return new Envelope(
+            from: new Address('info@healthmanager.kz', 'Health Manager Website'),
+            replyTo: [
+                new Address($this->request->email, $this->request->name),
+            ],
             subject: 'Contact Form Submission',
-        );
+    );
     }
 
     /**
