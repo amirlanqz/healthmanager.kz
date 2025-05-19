@@ -42,11 +42,14 @@
 
                              <div class="mb-3">
                                 <label for="phone" class="form-label text-dark">Номер телефона</label>
-                                <input type="tel" name="phone" class="form-control text-dark" id="phone"
-                                       placeholder="+7 (___) ___-__-__"
-                                       pattern="[\+0-9\s\(\)\-]+"
-                                       title="Введите только цифры и символы +, -, (, )">                            
-                                    </div>
+                                <input type="tel"
+                                        name="phone"
+                                        class="form-control text-dark"
+                                        id="phone"
+                                        value="+7"
+                                        placeholder="+7 (___) ___-__-__"
+                                        pattern="^\+7[0-9\s\-\(\)]{10,}$"
+                                        title="Номер должен начинаться с +7 и содержать не менее 10 цифр">
                             <div class="mb-3">
                                 <label for="message" class="form-label text-dark">Сообщение</label>
                                 <textarea name="message" class="form-control text-dark" id="message" rows="5" placeholder="Ваше сообщение..."></textarea>
