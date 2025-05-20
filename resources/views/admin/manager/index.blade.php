@@ -74,15 +74,19 @@
                                                     @php
                                                         $files = json_decode($manager->education_file, true);
                                                     @endphp
-                                                    @foreach ($files as $file)
-                                                        @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png']))
-                                                            <img src="{{ asset($file) }}" alt="Diploma" style="max-width: 100px; margin-bottom: 10px;">
-                                                        @else
-                                                            <a href="{{ asset($file) }}" target="_blank">View {{ pathinfo($file, PATHINFO_BASENAME) }}</a>
-                                                        @endif
-                                                    @endforeach
-                                                @else
-                                                    <img src="{{ asset('no-image.png') }}" alt="No file" style="max-width: 100px;">
+
+                                                    <div class="form-group mt-3">
+                                                        <label>Загруженные дипломы:</label>
+                                                        <ul>
+                                                            @foreach ($files as $file)
+                                                                <li>
+                                                                    <a href="{{ asset($file) }}" target="_blank">
+                                                                        {{ basename($file) }}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
                                                 @endif
                                             </td>
                                             <td>{{ $manager->accepted_rules }}</td>
