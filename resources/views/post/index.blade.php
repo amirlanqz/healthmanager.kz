@@ -187,7 +187,7 @@
                             <div class="team-social d-flex justify-content-center gap-2 mt-auto">
                                 <a class="btn btn-square btn-outline-light" href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-outline-light" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-light" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/{{ $manager->social_links }}"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
