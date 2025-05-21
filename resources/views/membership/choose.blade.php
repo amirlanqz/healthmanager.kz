@@ -11,8 +11,8 @@
             <!-- Ассоциированный член -->
             <div class="col-lg-4 col-md-6">
                 <div class="card membership-card h-100 border-0 shadow-sm wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card-header bg-purple bg-opacity-10 text-primary py-4">
-                        <h4 class="my-0 fw-normal text-center">Ассоциированный член</h4>
+                    <div class="card-header bg-primary bg-opacity-10 text-primary py-4">
+                        <h4 class="my-0 fw-normal text-center text-white">Ассоциированный член</h4>
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h3 class="card-title pricing-card-title text-center mb-4">
@@ -37,8 +37,8 @@
             <!-- Полноправный менеджер -->
             <div class="col-lg-4 col-md-6">
                 <div class="card membership-card h-100 border-0 shadow-sm wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="card-header bg-purple bg-opacity-10 text-primary py-4">
-                        <h4 class="my-0 fw-normal text-center">Полноправный менеджер</h4>
+                    <div class="card-header bg-primary bg-opacity-10 text-primary py-4">
+                        <h4 class="my-0 fw-normal text-center text-white">Полноправный менеджер</h4>
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h3 class="card-title pricing-card-title text-center mb-4">
@@ -64,8 +64,8 @@
             <!-- ТОП менеджер -->
             <div class="col-lg-4 col-md-6">
                 <div class="card membership-card h-100 border-0 shadow-sm wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="card-header bg-purple bg-opacity-10 text-purple py-4">
-                        <h4 class="my-0 fw-normal text-center">ТОП менеджер</h4>
+                    <div class="card-header bg-primary bg-opacity-10 text-purple py-4">
+                        <h4 class="my-0 fw-normal text-center text-white">ТОП менеджер</h4>
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h3 class="card-title pricing-card-title text-center mb-4">
@@ -91,4 +91,5 @@
 
     </div>
 @endsection
+
 
