@@ -38,7 +38,6 @@
                 <li class="nav-item d-none d-md-block"> <a href="{{ route('home') }}" class="nav-link">Home</a> </li>
             </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
             <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
-              !--end::Notifications Dropdown Menu--> <!--begin::Fullscreen Toggle-->
                 <li class="nav-item"> <a class="nav-link" href="#" data-lte-toggle="fullscreen"> <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none;"></i> </a> </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
                 <li class="nav-item dropdown user-menu"> <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <img src="{{ asset('assets/admin/assets/img/user2-160x160.jpg')}}" class="user-image rounded-circle shadow" alt="User Image"> <span class="d-none d-md-inline">
                             {{ auth()->user()->name }}

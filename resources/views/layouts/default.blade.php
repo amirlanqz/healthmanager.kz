@@ -375,20 +375,20 @@
                     <i class="fa fa-envelope me-3"></i>info@healthmanager.kz
                 </p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social rounded-circle" href=""
+                    <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/health_manager.kz/"
                     ><i class="fab fa-instagram"></i
                         ></a>
-                    <a class="btn btn-outline-light btn-social rounded-circle" href=""
+                    <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.youtube.com/@kazhealthmanagersassociati4193/featured"
                     ><i class="fab fa-youtube"></i
                         ></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Быстрые ссылки</h5>
-                <a class="btn btn-link" href="{{ route('home') }}">Home</a>
-                <a class="btn btn-link" href="">Контакты</a>
+                <a class="btn btn-link" href="{{ route('home') }}">Главная</a>
+                <a class="btn btn-link" href="{{ route('contact') }}">Контакты</a>
                 <a class="btn btn-link" href="{{ route('posts.all') }}">Блог</a>
-                <a class="btn btn-link" href="">Менеджеры</a>
+                <a class="btn btn-link" href="{{ route('all.managers') }}">Менеджеры</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Напишите нам</h5>
@@ -397,7 +397,7 @@
                     <input
                         class="form-control border-0 w-100 py-3 ps-4 pe-5"
                         type="text"
-                        placeholder="Your email"
+                        placeholder="Ваш email"
                     />
                     <button
                         type="button"
@@ -413,8 +413,7 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="index.html">healthmanager.kz</a>, All
-                    Right Reserved.
+                    &copy; <a class="border-bottom" href="index.html">healthmanager.kz</a>
                 </div>
             </div>
         </div>

@@ -71,72 +71,19 @@
         <div class="container feature px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div
-                        class="col-lg-6 feature-text py-5 wow fadeIn"
+                        class="col-lg-6 feature-text py-5 d-flex align-items-center wow fadeIn"
                         data-wow-delay="0.1s"
                 >
                     <div class="p-lg-5 ps-lg-0">
                         <h1 class="text-white mb-4">Наша деятельность</h1>
-                        <p class="text-white mb-4 pb-2">
-                            Резолюция круглого стола по обсуждению вопросов сертификации менеджеров здравоохранения
+                        <p class="text-white mb-4">
+                            Резолюция круглого стола по обсуждению вопросов сертификации менеджеров здравоохранения.
                         </p>
-                        <div class="row g-4">
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div
-                                            class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                                            style="width: 55px; height: 55px"
-                                    >
-                                        <i class="fa fa-user-md text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Опыт</p>
-                                        <h5 class="text-white mb-0">Докторы</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div
-                                            class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                                            style="width: 55px; height: 55px"
-                                    >
-                                        <i class="fa fa-check text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Качество</p>
-                                        <h5 class="text-white mb-0">Сервисы</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div
-                                            class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                                            style="width: 55px; height: 55px"
-                                    >
-                                        <i class="fa fa-comment-medical text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Положительный</p>
-                                        <h5 class="text-white mb-0">Консультация</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div
-                                            class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                                            style="width: 55px; height: 55px"
-                                    >
-                                        <i class="fa fa-headphones text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">24 часа</p>
-                                        <h5 class="text-white mb-0">Поддержка</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="text-white mb-4">
+                            Казахстанская ассоциация менеджеров здравоохранения занимается развитием системы управления
+                            здравоохранением, повышением квалификации специалистов, сертификацией и внедрением
+                            международных стандартов в медицинских организациях страны.
+                        </p>
                     </div>
                 </div>
                 <div
@@ -149,13 +96,14 @@
                                 class="position-absolute img-fluid w-100 h-100"
                                 src="{{ asset('assets/front/img/feature.jpg')}}"
                                 style="object-fit: cover"
-                                alt=""
+                                alt="Feature Image"
                         />
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Feature End -->
 
     <!-- Team Start -->
