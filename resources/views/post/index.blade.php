@@ -69,20 +69,21 @@
     <!-- Feature Start -->
     <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
         <div class="container feature px-lg-0">
-            <div class="row g-0 mx-lg-0">
+            <div class="row g-0 mx-lg-0" style="min-height: 400px;">
                 <div
-                        class="col-lg-6 feature-text py-5 d-flex align-items-center wow fadeIn"
+                        class="col-lg-6 feature-text d-flex align-items-center h-100 wow fadeIn"
                         data-wow-delay="0.1s"
                 >
                     <div class="p-lg-5 ps-lg-0">
                         <h1 class="text-white mb-4">Наша деятельность</h1>
                         <p class="text-white mb-4">
-                            Резолюция круглого стола по обсуждению вопросов сертификации менеджеров здравоохранения.
+                            Казахстанская ассоциация менеджеров здравоохранения занимается развитием системы управления здравоохранением,
+                            повышением квалификации специалистов, сертификацией кадров и внедрением международных стандартов
+                            в медицинские учреждения Республики Казахстан.
                         </p>
-                        <p class="text-white mb-4">
-                            Казахстанская ассоциация менеджеров здравоохранения занимается развитием системы управления
-                            здравоохранением, повышением квалификации специалистов, сертификацией и внедрением
-                            международных стандартов в медицинских организациях страны.
+                        <p class="text-white mb-0">
+                            Мы объединяем профессионалов в сфере медицины, образования и управления, чтобы совместно формировать
+                            эффективную и устойчивую систему здравоохранения.
                         </p>
                     </div>
                 </div>
@@ -96,13 +97,14 @@
                                 class="position-absolute img-fluid w-100 h-100"
                                 src="{{ asset('assets/front/img/feature.jpg')}}"
                                 style="object-fit: cover"
-                                alt="Feature Image"
+                                alt="Фото деятельности"
                         />
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Feature End -->
 
