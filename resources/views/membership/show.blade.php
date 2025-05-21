@@ -21,13 +21,13 @@
 
                             <!-- Photo Upload with Preview -->
                             <div class="col-md-6">
-                                <label for="thumb" class="form-label fw-semibold text-dark">Фотография <span class="text-danger">*</span></label>
+                                <label for="thumb" class="form-label fw-semibold">Фотография <span class="text-danger">*</span></label>
                                 <div class="d-flex align-items-center gap-3">
-                                    <div class="rounded-circle border border-primary overflow-hidden" style="width: 60px; height: 60px; background-color: #f0f2f5;">
+                                    <div class="rounded-circle border overflow-hidden" style="width: 60px; height: 60px; background-color: #f0f2f5;">
                                         <img id="thumbPreview" src="#" alt="Preview" class="img-fluid d-none" style="object-fit: cover; width: 100%; height: 100%;">
                                     </div>
                                     <div class="flex-grow-1">
-                                        <input type="file" class="form-control border-primary" name="thumb" id="thumb" accept="image/*" required onchange="previewImage(this, 'thumbPreview')">
+                                        <input type="file" class="form-control" name="thumb" id="thumb" accept="image/*" required onchange="previewImage(this, 'thumbPreview')">
                                         <div class="invalid-feedback">Пожалуйста, загрузите фотографию</div>
                                     </div>
                                 </div>
@@ -35,62 +35,62 @@
 
                             <!-- Full Name -->
                             <div class="col-md-6">
-                                <label for="full_name" class="form-label fw-semibold text-dark">ФИО <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control border-primary" name="full_name" id="full_name" required>
+                                <label for="full_name" class="form-label fw-semibold">ФИО <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="full_name" id="full_name" required>
                                 <div class="invalid-feedback">Пожалуйста, укажите ваше полное имя</div>
                             </div>
 
                             <!-- Email -->
                             <div class="col-md-6">
-                                <label for="email" class="form-label fw-semibold text-dark">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control border-primary" name="email" id="email" required>
+                                <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" id="email" required>
                                 <div class="invalid-feedback">Пожалуйста, введите корректный email</div>
                             </div>
 
                             <!-- Position -->
                             <div class="col-md-6">
-                                <label for="position" class="form-label fw-semibold text-dark">Должность <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control border-primary" name="position" id="position" required>
+                                <label for="position" class="form-label fw-semibold">Должность <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="position" id="position" required>
                                 <div class="invalid-feedback">Пожалуйста, укажите вашу должность</div>
                             </div>
 
                             <!-- Workplace -->
                             <div class="col-md-6">
-                                <label for="workplace" class="form-label fw-semibold text-dark">Место работы <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control border-primary" name="workplace" id="workplace" required>
+                                <label for="workplace" class="form-label fw-semibold">Место работы <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="workplace" id="workplace" required>
                                 <div class="invalid-feedback">Пожалуйста, укажите место работы</div>
                             </div>
 
                             <!-- Phone -->
                             <div class="col-md-6">
-                                <label for="phone" class="form-label fw-semibold text-dark">Контактный номер <span class="text-danger">*</span></label>
+                                <label for="phone" class="form-label fw-semibold">Контактный номер <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <span class="input-group-text border-primary">+7</span>
-                                    <input type="tel" class="form-control border-primary" name="phone" id="phone" required>
+                                    <span class="input-group-text">+7</span>
+                                    <input type="tel" class="form-control" name="phone" id="phone" required>
                                 </div>
                                 <div class="invalid-feedback">Пожалуйста, укажите контактный номер</div>
                             </div>
 
                             <!-- Social Links -->
                             <div class="col-md-6">
-                                <label for="social_links" class="form-label fw-semibold text-dark">Социальные сети</label>
+                                <label for="social_links" class="form-label fw-semibold">Социальные сети</label>
                                 <div class="input-group">
-                                    <span class="input-group-text border-primary"><i class="bi bi-instagram"></i></span>
-                                    <input type="text" class="form-control border-primary" name="social_links" id="social_links">
+                                    <span class="input-group-text"><i class="bi bi-instagram"></i></span>
+                                    <input type="text" class="form-control" name="social_links" id="social_links">
                                 </div>
                             </div>
 
                             <!-- Birth Date -->
                             <div class="col-md-6">
-                                <label for="birth_date" class="form-label fw-semibold text-dark">Дата рождения <span class="text-danger">*</span></label>
-                                <input type="date" class="form-control border-primary" name="birth_date" id="birth_date" required>
+                                <label for="birth_date" class="form-label fw-semibold">Дата рождения <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" name="birth_date" id="birth_date" required>
                                 <div class="invalid-feedback">Пожалуйста, укажите дату рождения</div>
                             </div>
 
                             <!-- Experience -->
                             <div class="col-md-6">
-                                <label for="healthcare_experience" class="form-label fw-semibold text-dark">Стаж работы в здравоохранении</label>
-                                <select class="form-select border-primary" name="healthcare_experience" id="healthcare_experience">
+                                <label for="healthcare_experience" class="form-label fw-semibold">Стаж работы в здравоохранении</label>
+                                <select class="form-select" name="healthcare_experience" id="healthcare_experience">
                                     <option value="" selected disabled>Выберите стаж</option>
                                     <option value="Менее 1 года">Менее 1 года</option>
                                     <option value="1-3 года">1-3 года</option>
@@ -102,15 +102,15 @@
 
                             <!-- Education -->
                             <div class="col-md-6">
-                                <label for="education" class="form-label fw-semibold text-dark">Образование <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control border-primary" name="education" id="education" required>
+                                <label for="education" class="form-label fw-semibold">Образование <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="education" id="education" required>
                                 <div class="invalid-feedback">Пожалуйста, укажите ваше образование</div>
                             </div>
 
                             <!-- Education Documents -->
                             <div class="col-md-6">
-                                <label for="education_file" class="form-label fw-semibold text-dark">Документ об образовании <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control border-primary" name="education_file[]" id="education_file" accept=".pdf,image/*" multiple required>
+                                <label for="education_file" class="form-label fw-semibold">Документ об образовании <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" name="education_file[]" id="education_file" accept=".pdf,image/*" multiple required>
                                 <small class="text-muted">Можно загрузить несколько файлов (PDF, JPG, PNG)</small>
                                 <div class="invalid-feedback">Пожалуйста, загрузите документ об образовании</div>
                             </div>
@@ -118,8 +118,8 @@
                             <!-- Agreement -->
                             <div class="col-12 mt-3">
                                 <div class="form-check">
-                                    <input class="form-check-input border-primary" type="checkbox" name="accepted_rules" id="accepted_rules" value="1" required>
-                                    <label class="form-check-label text-dark" for="accepted_rules">
+                                    <input class="form-check-input" type="checkbox" name="accepted_rules" id="accepted_rules" value="1" required>
+                                    <label class="form-check-label" for="accepted_rules">
                                         Я ознакомился с Уставом и Правилами вступления в члены Республиканского общественного объединения
                                         «Казахстанская ассоциация менеджеров здравоохранения», понимаю их содержание и принимаю их условия.
                                         Я обязуюсь соответствовать требованиям, предъявляемым члену Объединения и понимаю ответственность в рамках членства в Объединении.
