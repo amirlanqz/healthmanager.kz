@@ -71,48 +71,54 @@ class ManagerController extends Controller
         return view('admin.manager.edit', compact('manager'));
     }
 
-    public function update(Request $request, string $id)
-    {
-        $manager = Manager::query()->findOrFail($id);
+   public function update(Request $request, string $id)
+{
+    $manager = Manager::query()->findOrFail($id);
 
-        $validated = $request->validate([
-            'thumb' => 'nullable|image|max:2048',
-            'full_name' => 'required|string|max:255',
-            'membership_status' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'position' => 'nullable|string|max:255',
-            'workplace' => 'nullable|string|max:255',
-            'education' => 'nullable|string',
-            'education_file.*' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
-            'phone' => 'nullable|string|max:20',
-            'social_links' => 'nullable|string|max:255',
-            'birth_date' => 'nullable|date',
-            'healthcare_experience' => 'nullable|string|max:255',
-            'accepted_rules' => 'required|accepted',
-        ]);
+    $validated = $request->validate([
+        'thumb' => 'nullable|image|max:2048',
+        'full_name' => 'required|string|max:255',
+        'membership_status' => 'required|string|max:255',
+        'email' => 'required|string|max:255',
+        'position' => 'nullable|string|max:255',
+        'workplace' => 'nullable|string|max:255',
+        'education' => 'nullable|string',
+        'education_file.*' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+        'phone' => 'nullable|string|max:20',
+        'social_links' => 'nullable|string|max:255',
+        'birth_date' => 'nullable|date',
+        'healthcare_experience' => 'nullable|string|max:255',
+        'accepted_rules' => 'required|accepted',
+    ]);
 
-        // Обработка изображения
-        if ($request->hasFile('thumb')) {
-            $file = $request->file('thumb');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('managers/thumbs'), $filename);
-            $validated['thumb'] = 'managers/thumbs/' . $filename;
-        }
-
-        // Обработка файлов дипломов
-        $currentFiles = $manager->education_file ? json_decode($manager->education_file, true) : [];
-        if ($request->hasFile('education_file')) {
-            foreach ($request->file('education_file') as $file) {
-                $filename = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('managers/diplomas'), $filename);
-                $currentFiles[] = 'managers/diplomas/' . $filename;
-            }
-            $validated['education_file'] = json_encode($currentFiles);
-        }
-
-        $manager->update($validated);
-        return redirect()->route('manager.index')->with('success', 'Менеджер успешно обновлён.');
+    // Обработка изображения
+    if ($request->hasFile('thumb')) {
+        $file = $request->file('thumb');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('managers/thumbs'), $filename);
+        $validated['thumb'] = 'managers/thumbs/' . $filename;
+    } else {
+        // Сохраняем старое изображение, если новое не загружено
+        unset($validated['thumb']);
     }
+
+    // Обработка файлов дипломов
+    if ($request->hasFile('education_file')) {
+        $currentFiles = $manager->education_file ? json_decode($manager->education_file, true) : [];
+        foreach ($request->file('education_file') as $file) {
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('managers/diplomas'), $filename);
+            $currentFiles[] = 'managers/diplomas/' . $filename;
+        }
+        $validated['education_file'] = json_encode($currentFiles);
+    } else {
+        // Сохраняем старые дипломы, если новых не загружено
+        unset($validated['education_file']);
+    }
+
+    $manager->update($validated);
+    return redirect()->route('manager.index')->with('success', 'Менеджер успешно обновлён.');
+}
 
     public function destroy(string $id)
     {
