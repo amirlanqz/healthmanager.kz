@@ -86,9 +86,6 @@ class ManagerController extends Controller
         'education_file.*' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
         'phone' => 'nullable|string|max:20',
         'social_links' => 'nullable|string|max:255',
-        'birth_date' => 'nullable|date',
-        'healthcare_experience' => 'nullable|string|max:255',
-        'accepted_rules' => 'required|accepted',
     ]);
 
     // Обработка изображения

@@ -36,14 +36,12 @@
                                 <div class="row mb-3">
                                     <label for="thumb" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <td>
-                                            @if ($manager->thumb)
-                                                <img src="{{ asset($manager->thumb) }}" alt="{{ $manager->full_name }}" style="max-width: 100px;">
-                                            @else
-                                                <img src="{{ asset('no-image.png') }}" alt="No image" style="max-width: 100px;">
-                                            @endif
-                                        </td>
-                                        <input type="file" name="thumb" class="form-control" id="thumb" accept="thumb/*">
+                                        @if ($manager->thumb)
+                                            <img src="{{ asset($manager->thumb) }}" alt="{{ $manager->full_name }}" style="max-width: 100px;">
+                                        @else
+                                            <img src="{{ asset('no-image.png') }}" alt="No image" style="max-width: 100px;">
+                                        @endif
+                                        <input type="file" name="thumb" class="form-control mt-2" id="thumb" accept="image/*">
                                         <small class="form-text text-muted">Upload a new image to replace the current one (optional).</small>
                                         @error('thumb')
                                         <div class="text-danger">{{ $message }}</div>
@@ -67,9 +65,9 @@
                                     <label for="membership_status" class="col-sm-2 col-form-label required">Membership Status</label>
                                     <div class="col-sm-10">
                                         <select name="membership_status" class="form-control" id="membership_status">
-                                            <option value="top_manager" {{ old('membership_status', 'top_manager') == 'top_manager' ? 'selected' : '' }}>Полноправный член - Топ менеджер</option>
-                                            <option value="health_manager" {{ old('membership_status') == 'health_manager' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения</option>
-                                            <option value="seo" {{ old('membership_status') == 'seo' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения, учредитель</option>
+                                            <option value="top_manager" {{ old('membership_status', $manager->membership_status) == 'top_manager' ? 'selected' : '' }}>Полноправный член - Топ менеджер</option>
+                                            <option value="health_manager" {{ old('membership_status', $manager->membership_status) == 'health_manager' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения</option>
+                                            <option value="seo" {{ old('membership_status', $manager->membership_status) == 'seo' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения, учредитель</option>
                                         </select>
                                         @error('membership_status')
                                         <div class="text-danger">{{ $message }}</div>
@@ -77,8 +75,9 @@
                                     </div>
                                 </div>
 
+                                <!-- Email -->
                                 <div class="row mb-3">
-                                    <label for="position" class="col-sm-2 col-form-label">Email</label>
+                                    <label for="email" class="col-sm-2 col-form-label required">Email</label>
                                     <div class="col-sm-10">
                                         <input type="email" name="email" class="form-control" id="email" value="{{ old('email', $manager->email) }}">
                                         @error('email')
@@ -109,6 +108,28 @@
                                     </div>
                                 </div>
 
+                                <!-- Phone -->
+                                <div class="row mb-3">
+                                    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="phone" class="form-control" id="phone" value="{{ old('phone', $manager->phone) }}">
+                                        @error('phone')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Social Links -->
+                                <div class="row mb-3">
+                                    <label for="social_links" class="col-sm-2 col-form-label">Social Links</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="social_links" class="form-control" id="social_links" value="{{ old('social_links', $manager->social_links) }}">
+                                        @error('social_links')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                                 <!-- Education -->
                                 <div class="row mb-3">
                                     <label for="education" class="col-sm-2 col-form-label">Education</label>
@@ -124,7 +145,6 @@
                                 <div class="row mb-3">
                                     <label for="education_file" class="col-sm-2 col-form-label">Diploma File(s)</label>
                                     <div class="col-sm-10">
-                                        <!-- Display existing files -->
                                         @if ($manager->education_file && is_array(json_decode($manager->education_file, true)))
                                             <div class="mb-3">
                                                 <p>Current files:</p>
@@ -138,7 +158,6 @@
                                                 @endforeach
                                             </div>
                                         @endif
-                                        <!-- Input for new files -->
                                         <input type="file" name="education_file[]" class="form-control" id="education_file" accept=".pdf,image/*" multiple>
                                         <small class="form-text text-muted">Upload one or more new diploma files (PDF or image) to add to existing files.</small>
                                         @error('education_file.*')
@@ -147,6 +166,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-warning">Update</button>
                                 <a href="{{ route('manager.index') }}" class="btn btn-secondary">Cancel</a>
