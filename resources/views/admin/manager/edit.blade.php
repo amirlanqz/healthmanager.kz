@@ -65,19 +65,19 @@
                                     <label for="membership_status" class="col-sm-2 col-form-label required">Membership Status</label>
                                     <div class="col-sm-10">
                                         <select name="membership_status" class="form-control" id="membership_status">
-    <option value="Полноправный член - Топ менеджер"
-        {{ old('membership_status', $manager->membership_status) == 'Полноправный член - Топ менеджер' ? 'selected' : '' }}>
-        Полноправный член - Топ менеджер
-    </option>
-    <option value="Полноправный член - Менеджер здравоохранения"
-        {{ old('membership_status', $manager->membership_status) == 'Полноправный член - Менеджер здравоохранения' ? 'selected' : '' }}>
-        Полноправный член - Менеджер здравоохранения
-    </option>
-    <option value="Полноправный член - Менеджер здравоохранения, учредитель"
-        {{ old('membership_status', $manager->membership_status) == 'Полноправный член - Менеджер здравоохранения, учредитель' ? 'selected' : '' }}>
-        Полноправный член - Менеджер здравоохранения, учредитель
-    </option>
-</select>
+                                            <option value="Ассоциированный член"
+                                                {{ old('membership_status', $manager->membership_status) == 'Ассоциированный член' ? 'selected' : '' }}>
+                                                Ассоциированный член
+                                            </option>
+                                            <option value="Полноправный менеджер"
+                                                {{ old('membership_status', $manager->membership_status) == 'Полноправный менеджер' ? 'selected' : '' }}>
+                                                Полноправный менеджер
+                                            </option>
+                                            <option value="ТОП менеджер"
+                                                {{ old('membership_status', $manager->membership_status) == 'ТОП менеджер' ? 'selected' : '' }}>
+                                                ТОП менеджер
+                                            </option>
+                                        </select>
                                         @error('membership_status')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
