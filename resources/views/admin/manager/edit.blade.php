@@ -61,13 +61,13 @@
                                 </div>
 
                                 <!-- Membership Status -->
-                                <div class="row mb-3">
+                               <div class="row mb-3">
                                     <label for="membership_status" class="col-sm-2 col-form-label required">Membership Status</label>
                                     <div class="col-sm-10">
                                         <select name="membership_status" class="form-control" id="membership_status">
-                                            <option value="top_manager" {{ old('membership_status', $manager->membership_status) == 'top_manager' ? 'selected' : '' }}>Полноправный член - Топ менеджер</option>
-                                            <option value="health_manager" {{ old('membership_status', $manager->membership_status) == 'health_manager' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения</option>
-                                            <option value="seo" {{ old('membership_status', $manager->membership_status) == 'seo' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения, учредитель</option>
+                                            <option value="top_manager" {{ old('membership_status', 'top_manager') == 'top_manager' ? 'selected' : '' }}>Полноправный член - Топ менеджер</option>
+                                            <option value="health_manager" {{ old('membership_status') == 'health_manager' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения</option>
+                                            <option value="seo" {{ old('membership_status') == 'seo' ? 'selected' : '' }}>Полноправный член - Менеджер здравоохранения, учредитель</option>
                                         </select>
                                         @error('membership_status')
                                         <div class="text-danger">{{ $message }}</div>
