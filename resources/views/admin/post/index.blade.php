@@ -35,8 +35,9 @@
                                     <tr>
                                         <th style="width: 10px">ID</th>
                                         <th>Thumb</th>
+                                        <th>Title</th>
                                         <th>Category</th>
-                                        <th>Tags</th>
+                                        <th>Content</th>
                                         <th style="width: 150px">Action</th>
                                     </tr>
                                     </thead>
@@ -48,7 +49,7 @@
                                         <td><img src="/{{ $post->thumb ?: 'no-image.png' }}" alt=""></td>
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->category->title }}</td>
-                                        <td>{{ $post->tags->implode('title', ', ') }}</td>
+                                        <td>{{ $post->content }}</td>
                                         <td class="d-flex gap-2">
                                             <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn btn-info"><i class="bi bi-pencil"></i></a>
                                             <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post">
