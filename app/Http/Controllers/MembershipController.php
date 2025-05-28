@@ -76,9 +76,12 @@ class MembershipController extends Controller
         $manager = Manager::query()->create($validated);
 
         return redirect()->route('membership.success');
+        
+    }
 
-        // Тут можно вызвать сервис оплаты или перенаправить на оплату
-//        return redirect()->route('membership.payment', ['id' => $manager->id]);
+    public function success()
+    {
+        return view('membership.success');
     }
 
 }
