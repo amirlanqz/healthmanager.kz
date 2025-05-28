@@ -37,23 +37,6 @@ class MembershipController extends Controller
 
     public function submit(Request $request)
     {
-//        $data = $request->validate([
-//            'thumb' => 'required|image|max:2048',
-//            'full_name' => 'required|string|max:255',
-//            'membership_status' => 'required|string',
-//            'position' => 'required|string|max:255',
-//            'workplace' => 'required|string|max:255',
-//            'education' => 'required|string|max:255',
-//            'education_file' => 'required|file|mimes:pdf,jpg,jpeg,png|max:4096',
-//        ]);
-//
-//        // Сохраняем файлы
-//        $data['thumb'] = $request->file('thumb')->store('thumbs', 'public');
-//        $data['education_file'] = $request->file('education_file')->store('education_files', 'public');
-//
-//        // Сохраняем в базу
-//        $membership = Membership::create($data);
-
 
         $validated = $request->validate([
             'thumb' => 'nullable|image|max:2048',
@@ -91,6 +74,8 @@ class MembershipController extends Controller
         }
 
         $manager = Manager::query()->create($validated);
+
+        return redirect()->route('membership.success');
 
         // Тут можно вызвать сервис оплаты или перенаправить на оплату
 //        return redirect()->route('membership.payment', ['id' => $manager->id]);

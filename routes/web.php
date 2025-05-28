@@ -15,6 +15,7 @@ Route::get('/posts/all', [\App\Http\Controllers\PostController::class, 'allPosts
 Route::get('/membership', [\App\Http\Controllers\MembershipController::class, 'choose'])->name('membership.store');
 Route::get('/membership/form', [\App\Http\Controllers\MembershipController::class, 'showForm'])->name('membership.form');
 Route::post('/membership/submit', [\App\Http\Controllers\MembershipController::class, 'submit'])->name('membership.submit');
+Route::post('/membership/success', [\App\Http\Controllers\MembershipController::class, 'submit'])->name('membership.success');
 
 
 
