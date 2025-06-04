@@ -6,7 +6,7 @@
         <div class="row g-4">
             @forelse ($posts as $post)
                 <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="card shadow-sm rounded border-primary" style="border-width: 5px;">
+                    <div class="card shadow-sm rounded border-primary" style="border-width: 3px;">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center mb-2">
                                 @if ($post->category)
