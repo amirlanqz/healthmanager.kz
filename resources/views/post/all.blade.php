@@ -6,7 +6,7 @@
         <div class="row g-4">
             @forelse ($posts as $post)
                 <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="card shadow-sm rounded border-primary" style="border-width: 1px;">
+                    <div class="card shadow-sm rounded border-primary" style="border-width: 5px;">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center mb-2">
                                 @if ($post->category)
@@ -36,11 +36,6 @@
                                    class="btn btn-primary rounded-pill px-3 py-1" style="font-size: 0.85rem;">
                                     Читать далее <i class="fas fa-arrow-right ms-1"></i>
                                 </a>
-                                <div class="ms-auto">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle me-1" style="width: 28px; height: 28px; line-height: 28px;">
-                                        <i class="fab fa-instagram" style="font-size: 0.8rem;"></i>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
