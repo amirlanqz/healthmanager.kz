@@ -32,33 +32,39 @@
 
                             <div class="mb-3">
                                 <label for="name" class="form-label text-dark">Имя</label>
-                                <input type="text" name="name" class="form-control form-control text-dark" id="name" placeholder="Ваше имя">
+                                <input type="text" name="name" class="form-control form-control text-dark" id="name"
+                                       placeholder="Ваше имя" value="{{ old('name') }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label text-dark">Email</label>
-                                <input type="email" name="email" class="form-control text-dark" id="email" placeholder="example@email.com">
+                                <input type="email" name="email" class="form-control text-dark" id="email"
+                                       placeholder="example@email.com" value="{{ old('email') }}">
                             </div>
 
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <label for="phone" class="form-label text-dark">Номер телефона</label>
                                 <input type="tel"
-                                        name="phone"
-                                        class="form-control text-dark"
-                                        id="phone"
-                                        value="+7"
-                                        placeholder="+7 (___) ___-__-__"
-                                        pattern="^\+7[0-9\s\-\(\)]{10,}$"
-                                        title="Номер должен начинаться с +7 и содержать не менее 10 цифр">
+                                       name="phone"
+                                       class="form-control text-dark"
+                                       id="phone"
+                                       value="{{ old('phone', '+7') }}"
+                                       placeholder="+7 (___) ___-__-__"
+                                       pattern="^\+7[\d\s\-\(\)]{10,}$"
+                                       title="Номер должен начинаться с +7 и содержать не менее 10 цифр">
+                            </div>
+
                             <div class="mb-3">
                                 <label for="message" class="form-label text-dark">Сообщение</label>
-                                <textarea name="message" class="form-control text-dark" id="message" rows="5" placeholder="Ваше сообщение..."></textarea>
+                                <textarea name="message" class="form-control text-dark" id="message"
+                                          rows="5" placeholder="Ваше сообщение...">{{ old('message') }}</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100">
-                                <i class="bi bi-send me-1 "></i> Отправить сообщение
+                                <i class="bi bi-send me-1"></i> Отправить сообщение
                             </button>
                         </form>
+
                     </div>
                 </div>
 
