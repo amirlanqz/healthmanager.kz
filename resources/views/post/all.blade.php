@@ -1,4 +1,3 @@
-```php
 @extends('layouts.default')
 
 @section('content')
@@ -9,20 +8,20 @@
                 <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="card border-0 shadow-sm mb-4 overflow-hidden">
                         <div class="row g-0">
-                            <div class="col-lg-5">
-                                <div class="h-100 d-flex align-items-center">
-                                    @if ($post->thumb)
-                                        <img src="{{ asset($post->thumb) }}"
-                                             class="img-fluid w-100 rounded"
-                                             alt="{{ $post->title }}"
-                                             style="min-height: 200px; object-fit: cover; object-position: center center;">
-                                    @else
-                                        <div class="d-flex align-items-center justify-content-center bg-secondary bg-opacity-10 text-muted" style="min-height: 200px;">
-                                            <i class="bi bi-image fs-1"></i>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
+{{--                            <div class="col-lg-5">--}}
+{{--                                <div class="h-100 d-flex align-items-center">--}}
+{{--                                    @if ($post->thumb)--}}
+{{--                                        <img src="{{ asset($post->thumb) }}"--}}
+{{--                                             class="img-fluid w-100 rounded"--}}
+{{--                                             alt="{{ $post->title }}"--}}
+{{--                                             style="min-height: 200px; object-fit: cover; object-position: center center;">--}}
+{{--                                    @else--}}
+{{--                                        <div class="d-flex align-items-center justify-content-center bg-secondary bg-opacity-10 text-muted" style="min-height: 200px;">--}}
+{{--                                            <i class="bi bi-image fs-1"></i>--}}
+{{--                                        </div>--}}
+{{--                                    @endif--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="col-lg-7">
                                 <div class="card-body p-3 p-lg-4">
                                     <div class="d-flex align-items-center mb-2">
