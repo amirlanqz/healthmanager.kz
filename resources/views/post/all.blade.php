@@ -28,4 +28,6 @@
                     <p class="text-muted">Постов пока нет.</p>
                 </div>
             @endforelse
+        </div> <!-- Закрывающий тег для .row -->
+    </div> <!-- Закрывающий тег для .container -->
 @endsection
