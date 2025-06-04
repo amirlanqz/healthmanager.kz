@@ -7,7 +7,6 @@
             @forelse ($posts as $post)
                 <div class="col-lg-6 col-md-6">
                     <div class="card h-100 shadow-sm border-0 overflow-hidden">
-                        <!-- Обертка для изображения с фиксированным соотношением сторон -->
                         <div class="ratio ratio-16x9 bg-light">
                             @if ($post->thumb)
                                 <img src="{{ asset($post->thumb) }}"
@@ -51,19 +50,11 @@
                 </div>
             @endforelse
         </div>
-
-        <!-- Пагинация -->
-        @if($posts->hasPages())
-            <div class="mt-5">
-                {{ $posts->links() }}
-            </div>
-        @endif
     </div>
 @endsection
 
 @push('styles')
     <style>
-        /* Кастомные стили для карточек */
         .card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             border-radius: 0.5rem;
