@@ -54,7 +54,6 @@ class MembershipController extends Controller
             'accepted_rules' => 'required|accepted',
         ]);
 
-        // Обработка изображения
         if ($request->hasFile('thumb')) {
             $file = $request->file('thumb');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -62,7 +61,6 @@ class MembershipController extends Controller
             $validated['thumb'] = 'assets/admin/assets/managers/thumbs/' . $filename;
         }
 
-        // Обработка файлов дипломов
         if ($request->hasFile('education_file')) {
             $files = [];
             foreach ($request->file('education_file') as $file) {
