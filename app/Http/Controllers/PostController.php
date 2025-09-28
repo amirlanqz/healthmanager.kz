@@ -12,7 +12,7 @@ class PostController extends Controller
     public function index ()
     {
         $posts = Post::with('category')->orderBy('id', 'desc')->paginate(2);
-        $managers = Manager::take(4)->get();
+        $managers = Manager::orderBy('id', 'desc')->take(4)->get();
         return view('post.index', compact('posts', 'managers'));
     }
 
