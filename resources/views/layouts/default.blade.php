@@ -294,10 +294,14 @@
     </a>
 
     {{-- Переключатель языков --}}
+    <!-- Переключатель языков и кнопка форума -->
     <div class="d-flex align-items-center ms-3">
         <a href="#" class="nav-link px-2">🇷🇺 RU</a>
         <a href="#" class="nav-link px-2">🇰🇿 KK</a>
         <a href="#" class="nav-link px-2">🇬🇧 EN</a>
+        <a href="{{ route('forum.form') }}" class="btn btn-primary btn-sm ms-3">
+            Присоединиться к форуму <i class="fa fa-arrow-right ms-1"></i>
+        </a>
     </div>
 
     <button
@@ -324,7 +328,6 @@
 </nav>
 
 @if(request()->routeIs('home'))
-
     <div class="container-fluid header bg-primary p-0 mb-5">
         <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
             <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
@@ -362,7 +365,6 @@
             </div>
         </div>
     </div>
-
 @endif
 
 @yield('content')
@@ -430,15 +432,9 @@
     </div>
 </div>
 
-<!-- Back to Top -->
-<a
-        href="#"
-        class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i
-    ></a>
-
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('assets/front/lib/wow/wow.min.js')}}"></script>
 <script src="{{ asset('assets/front/lib/easing/easing.min.js')}}"></script>
 <script src="{{ asset('assets/front/lib/waypoints/waypoints.min.js')}}"></script>
@@ -450,5 +446,6 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('assets/front/js/main.js')}}"></script>
+
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,9 @@ Route::get('/membership', [\App\Http\Controllers\MembershipController::class, 'c
 Route::get('/membership/form', [\App\Http\Controllers\MembershipController::class, 'showForm'])->name('membership.form');
 Route::post('/membership/submit', [\App\Http\Controllers\MembershipController::class, 'submit'])->name('membership.submit');
 Route::get('/membership/success', [\App\Http\Controllers\MembershipController::class, 'success'])->name('membership.success');
+
+Route::get('/forum/form', [ForumController::class, 'showForm'])->name('forum.form');
+Route::post('/forum/apply', [ForumController::class, 'apply'])->name('forum.apply');
 
 
 
