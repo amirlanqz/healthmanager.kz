@@ -299,9 +299,10 @@
         <a href="#" class="nav-link px-2">🇷🇺 RU</a>
         <a href="#" class="nav-link px-2">🇰🇿 KK</a>
         <a href="#" class="nav-link px-2">🇬🇧 EN</a>
-        <a href="{{ route('forum.form') }}" class="btn btn-primary btn-sm ms-3">
-            Присоединиться к форуму <i class="fa fa-arrow-right ms-1"></i>
-        </a>
+        <a href="{{ route('forum.form') }}" class="btn btn-primary btn-sm ms-3"
+            style="font-size: 1rem; padding: 10px 22px;">
+        Присоединиться к форуму <i class="fa fa-arrow-right ms-1"></i>
+    </a>
     </div>
 
     <button
