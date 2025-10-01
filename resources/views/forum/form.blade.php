@@ -49,7 +49,7 @@
 
                     <div class="d-flex justify-content-between mb-4">
                         <button type="submit" class="btn btn-primary">Оставить заявку</button>
-                        <a href="{{ asset('files/forum_instructions.pdf') }}" class="btn btn-success" download>
+                        <a href="{{ asset('file/forum.pdf') }}" class="btn btn-success" download>
                             📄 Скачать инструкцию
                         </a>
                     </div>
