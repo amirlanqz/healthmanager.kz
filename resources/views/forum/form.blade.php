@@ -1,81 +1,128 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <h2 class="text-center mb-4">Приглашаем на форум</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4 fw-bold text-primary">
+                        📢 Приглашаем на форум
+                    </h2>
 
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+                    @if(session('success'))
+                        <div class="alert alert-success text-center">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
-                <p class="text-center">
-                    Приглашаем вас принять участие в нашем форуме. 
-                    Оставьте заявку — мы свяжемся с вами.
-                </p>
+                    <p class="text-center mb-5 text-muted">
+                        Мы рады пригласить вас принять участие в нашем форуме.<br>
+                        Оставьте заявку — и мы свяжемся с вами.
+                    </p>
 
-                <form action="{{ route('forum.apply') }}" method="POST">
-                    @csrf
+                    <form action="{{ route('forum.apply') }}" method="POST">
+                        @csrf
 
-                    <div class="mb-4">
-                        <label for="name" class="form-label">Ф.И.О</label>
-                        <input type="text" class="form-control" id="name" name="name" required
-                               style="color: #000; background-color: #fff;">
-                        @error('name')
-                        <div class="text-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
+                        <!-- ФИО -->
+                        <div class="mb-4">
+                            <label for="name" class="form-label fw-semibold">Ф.И.О *</label>
+                            <input type="text" class="form-control form-control-lg" id="name" name="name" required>
+                            @error('name')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                    <div class="mb-4">
-                        <label for="contact" class="form-label">Телефон</label>
-                        <input type="text" class="form-control" id="contact" name="contact" required
-                               style="color: #000; background-color: #fff;">
-                        @error('contact')
-                        <div class="text-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
+                        <!-- Телефон -->
+                        <div class="mb-4">
+                            <label for="contact" class="form-label fw-semibold">Телефон *</label>
+                            <input type="text" class="form-control form-control-lg" id="contact" name="contact" required>
+                            @error('contact')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                    <div class="mb-4">
-                        <label for="job" class="form-label">Место работы</label>
-                        <input type="text" class="form-control" id="job" name="job" required
-                               style="color: #000; background-color: #fff;">
-                        @error('job')
-                        <div class="text-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
+                        <!-- Место работы -->
+                        <div class="mb-4">
+                            <label for="job" class="form-label fw-semibold">Место работы *</label>
+                            <input type="text" class="form-control form-control-lg" id="job" name="job" required>
+                            @error('job')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                    <div class="d-flex justify-content-between mb-4">
-                        <button type="submit" class="btn btn-primary">Оставить заявку</button>
-                        <a href="{{ asset('file/forum.pdf') }}" class="btn btn-success" download>
-                            📄 Скачать инструкцию
-                        </a>
-                    </div>
-                </form>
+                        <!-- Членство -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold d-block">
+                                Являетесь ли Вы членом РОО <br>
+                                «Казахстанская Ассоциация менеджеров здравоохранения»? *
+                            </label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="member_yes" name="is_member" value="Да" required>
+                                <label class="form-check-label" for="member_yes">Да</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="member_no" name="is_member" value="Нет" required>
+                                <label class="form-check-label" for="member_no">Нет</label>
+                            </div>
+                            @error('is_member')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                <!-- Дополнительный контент -->
-                <div class="mt-5">
-                    <h3 class="text-center mb-3">О форуме</h3>
-                    <p>
-                        🎓 V Республиканский форум руководителей здравоохранения <br>
-                        📅 10–11 октября 2025 года <br>
+                        <!-- Кнопки -->
+                        <div class="d-flex justify-content-between align-items-center mt-5">
+                            <button type="submit" class="btn btn-lg btn-primary px-4 rounded-3 shadow-sm">
+                                🚀 Оставить заявку
+                            </button>
+                            <a href="{{ asset('file/forum.pdf') }}" class="btn btn-lg btn-success px-4 rounded-3 shadow-sm" download>
+                                📄 Программа форума
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Дополнительный контент -->
+            <div class="card shadow-sm border-0 rounded-4 mt-5">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-3 fw-bold text-secondary">ℹ️ О форуме</h3>
+                    <p class="mb-2">
+                        🎓 V Республиканский форум руководителей здравоохранения
+                    </p>
+                    <p class="mb-2">
+                        📅 10–11 октября 2025 года
+                    </p>
+                    <p class="mb-2">
                         📍 Astana IT University, г. Астана, проспект Мангилик Ел, С1
+                    </p>
+                    <p class="mb-2">
+                        ✅ Для членов Ассоциации участие бесплатное.
+                    </p>
+                    <p class="mb-2">
+                        💳 Для остальных разовый билет стоит <strong>40 000 тг</strong>.
+                    </p>
+                    <p class="fw-semibold text-success">
+                        ⚡ При регистрации вы автоматически становитесь членом Ассоциации, 
+                        а в стоимость билета входит годовое членство.
+                    </p>
+                    <p class="mt-3 text-center fw-bold text-dark">
+                        Присоединяйтесь к ключевому событию года в сфере управления здравоохранением!
                     </p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    {{-- Подключение маски для телефона --}}
-    @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#contact').mask('+7 (700) 000-00-00');
-        });
-    </script>
-    @endpush
+{{-- Подключение маски для телефона --}}
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#contact').mask('+7 (700) 000-00-00');
+    });
+</script>
+@endpush
 @endsection

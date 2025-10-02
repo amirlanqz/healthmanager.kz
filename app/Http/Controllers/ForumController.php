@@ -19,6 +19,7 @@ class ForumController extends Controller
             'name' => 'required|string|max:255',
             'contact' => 'required|string|max:255',
             'job' => 'required|string|max:255',
+            'is_member' => 'required|in:Да,Нет',
         ]);
 
         ForumApplication::create($data);
