@@ -9,5 +9,5 @@ class ForumApplication extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'contact', 'job', 'is_member'];
+    protected $fillable = ['name', 'contact', 'job', 'is_member', 'join_kamz'];
 }

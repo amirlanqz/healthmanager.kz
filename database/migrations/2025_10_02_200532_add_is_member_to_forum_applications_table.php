@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('forum_applications', function (Blueprint $table) {
-            //
+            $table->string('is_member')->after('job');
         });
     }
 

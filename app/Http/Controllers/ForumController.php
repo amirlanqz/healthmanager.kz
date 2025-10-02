@@ -20,6 +20,7 @@ class ForumController extends Controller
             'contact' => 'required|string|max:255',
             'job' => 'required|string|max:255',
             'is_member' => 'required|in:Да,Нет',
+            'join_kamz' => 'nullable|string|max:50',
         ]);
 
         ForumApplication::create($data);

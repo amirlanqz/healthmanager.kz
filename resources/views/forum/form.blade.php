@@ -70,6 +70,32 @@
                             @enderror
                         </div>
 
+
+                        <!-- Если "Нет", то блок вступления -->
+                        <div class="mb-4 d-none" id="join_kamz_block">
+                            <label class="form-label fw-semibold d-block">
+                                Если нет, готовы ли Вы вступить в КАМЗ?
+                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="join_yes" name="join_kamz" value="Да">
+                                <label class="form-check-label" for="join_yes">Да</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="join_no" name="join_kamz" value="Нет, нужен разовый билет">
+                                <label class="form-check-label" for="join_no">
+                                    Нет, нужен разовый билет <br>
+                                    <small>
+                                        Разовый билет можно приобрести на 
+                                        <a href="https://ticketon.kz/astana/event/pyatyy-respublikanskiy-forum-zdravookhraneniya-kostanay" target="_blank">Ticketon</a>.
+                                    </small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" formaction="{{ route('membership.store') }}" class="btn btn-warning btn-lg">
+                                🙌 Вступить в сообщество
+                        </button>
+
                         <!-- Кнопки -->
                         <div class="d-flex justify-content-between align-items-center mt-5">
                             <button type="submit" class="btn btn-lg btn-primary px-4 rounded-3 shadow-sm">
