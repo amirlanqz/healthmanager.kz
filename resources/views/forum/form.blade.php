@@ -69,8 +69,6 @@
                                 <div class="text-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
-
-
                         <!-- Если "Нет", то блок вступления -->
                        <div class="mb-4" id="join_kamz_block">
                             <label class="form-label fw-semibold d-block">
@@ -96,10 +94,6 @@
                                 </label>
                             </div>
                         </div>
-
-
-                        
-
                         <!-- Кнопки -->
                         <div class="d-flex justify-content-between align-items-center mt-5">
                             <button type="submit" class="btn btn-lg btn-primary px-4 rounded-3 shadow-sm">
@@ -114,20 +108,24 @@
             </div>
 
             <!-- Дополнительный контент -->
-          <!-- Модальное окно "О форуме" -->
-            <div class="modal fade" id="forumInfoModal" tabindex="-1" aria-labelledby="forumInfoModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content rounded-4 shadow-lg">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold text-secondary" id="forumInfoModalLabel">ℹ️ О форуме</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="mb-2">🎓 V Республиканский форум руководителей здравоохранения</p>
-                    <p class="mb-2">📅 10–11 октября 2025 года</p>
-                    <p class="mb-2">📍 Astana IT University, г. Астана, проспект Мангилик Ел, С1</p>
-                    <p class="mb-2">✅ Для членов Ассоциации участие бесплатное.</p>
-                    <p class="mb-2">💳 Для остальных разовый билет стоит <strong>40 000 тг</strong>.</p>
+            <div class="card shadow-sm border-0 rounded-4 mt-5">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-3 fw-bold text-secondary">ℹ️ О форуме</h3>
+                    <p class="mb-2">
+                        🎓 V Республиканский форум руководителей здравоохранения
+                    </p>
+                    <p class="mb-2">
+                        📅 10–11 октября 2025 года
+                    </p>
+                    <p class="mb-2">
+                        📍 Astana IT University, г. Астана, проспект Мангилик Ел, С1
+                    </p>
+                    <p class="mb-2">
+                        ✅ Для членов Ассоциации участие бесплатное.
+                    </p>
+                    <p class="mb-2">
+                        💳 Для остальных разовый билет стоит <strong>40 000 тг</strong>.
+                    </p>
                     <p class="fw-semibold text-success">
                         ⚡ При регистрации вы автоматически становитесь членом Ассоциации, 
                         а в стоимость билета входит годовое членство.
@@ -136,20 +134,18 @@
                         Присоединяйтесь к ключевому событию года в сфере управления здравоохранением!
                     </p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <a href="{{ route('forum.form') }}" class="btn btn-primary" data-bs-dismiss="modal">🚀 Оставить заявку</a>
-                </div>
-                </div>
             </div>
-            </div>
+        </div>
+    </div>
+</div>
 
-{{-- Скрипт автопоказа --}}
+{{-- Подключение маски для телефона --}}
 @push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var forumModal = new bootstrap.Modal(document.getElementById('forumInfoModal'));
-        forumModal.show();
+    $(document).ready(function(){
+        $('#contact').mask('+7 (700) 000-00-00');
     });
 </script>
 @endpush
