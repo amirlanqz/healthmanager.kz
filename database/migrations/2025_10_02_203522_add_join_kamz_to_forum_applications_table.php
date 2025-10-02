@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('forum_applications', function (Blueprint $table) {
+            $table->string('join_kamz')->nullable()->after('is_member');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('forum_applications', function (Blueprint $table) {
+             $table->dropColumn('join_kamz');
+        });
+    }
+};
