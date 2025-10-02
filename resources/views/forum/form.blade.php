@@ -78,7 +78,12 @@
                             </label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="join_yes" name="join_kamz" value="Да">
-                                <label class="form-check-label" for="join_yes">Да</label>
+                                <label class="form-check-label" for="join_yes">
+                                    Да <br>
+                                    <small>
+                                        <a href="{{ route('membership.store') }}" target="_blank">Вступить в сообщество</a>
+                                    </small>
+                                </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="join_no" name="join_kamz" value="Нет, нужен разовый билет">
@@ -93,9 +98,7 @@
                         </div>
 
 
-                        <a href="{{ route('membership.store') }}" target="_blank" class="btn btn-warning btn-lg">
-                            🙌 Вступить в сообщество
-                        </a>
+                        
 
                         <!-- Кнопки -->
                         <div class="d-flex justify-content-between align-items-center mt-5">
