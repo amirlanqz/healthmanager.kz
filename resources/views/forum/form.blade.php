@@ -72,7 +72,7 @@
 
 
                         <!-- Если "Нет", то блок вступления -->
-                        <div class="mb-4 d-none" id="join_kamz_block">
+                       <div class="mb-4" id="join_kamz_block">
                             <label class="form-label fw-semibold d-block">
                                 Если нет, готовы ли Вы вступить в КАМЗ?
                             </label>
@@ -91,6 +91,7 @@
                                 </label>
                             </div>
                         </div>
+
 
                         <a href="{{ route('membership.store') }}" target="_blank" class="btn btn-warning btn-lg">
                             🙌 Вступить в сообщество
