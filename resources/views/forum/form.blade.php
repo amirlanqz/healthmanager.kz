@@ -92,9 +92,9 @@
                             </div>
                         </div>
 
-                        <button type="submit" formaction="{{ route('membership.store') }}" class="btn btn-warning btn-lg">
-                                🙌 Вступить в сообщество
-                        </button>
+                        <a href="{{ route('membership.store') }}" target="_blank" class="btn btn-warning btn-lg">
+                            🙌 Вступить в сообщество
+                        </a>
 
                         <!-- Кнопки -->
                         <div class="d-flex justify-content-between align-items-center mt-5">
